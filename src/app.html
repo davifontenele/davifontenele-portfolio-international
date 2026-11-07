@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#050505" />
+    <meta
+      name="description"
+      content="Davi Fontenele — designer criativo, filmmaker e especialista em inteligência artificial aplicada à comunicação."
+    />
+    <link rel="icon" href="%sveltekit.assets%/favicon.svg" />
+
+    <!-- A fonte do título é crítica para o LCP; as demais carregam pelo CSS local. -->
+    <link
+      rel="preload"
+      href="%sveltekit.assets%/fonts/roboto-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="%sveltekit.assets%/posters/hero.jpg"
+      as="image"
+      fetchpriority="high"
+    />
+
+    <!-- Analytics entra após load/idle para não disputar a renderização inicial. -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-543W8H3KPQ');
+
+      function loadAnalytics() {
+        if (document.querySelector('script[data-google-analytics]')) return;
+        const script = document.createElement('script');
+        script.async = true;
+        script.dataset.googleAnalytics = 'true';
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-543W8H3KPQ';
+        document.head.appendChild(script);
+      }
+
+      window.addEventListener(
+        'load',
+        () => {
+          if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(loadAnalytics, { timeout: 5000 });
+          } else {
+            window.setTimeout(loadAnalytics, 3000);
+          }
+        },
+        { once: true }
+      );
+    </script>
+
+    %sveltekit.head%
+  </head>
+  <body data-sveltekit-preload-data="hover">
+    <div style="display: contents">%sveltekit.body%</div>
+  </body>
+</html>
