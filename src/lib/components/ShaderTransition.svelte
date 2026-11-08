@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { CaseItem } from '$lib/data/cases';
+  import type { Slide } from '$lib/data/slides';
   import { nav } from '$lib/stores/nav.svelte';
 
   /**
@@ -17,7 +17,7 @@
    * gradiente procedural — assim a transição já é visível com placeholders.
    */
   type Props = {
-    items: CaseItem[];
+    items: Slide[];
     videoEls: (HTMLVideoElement | null)[];
     /** Quantidade de faixas verticais (configurável). */
     strips?: number;

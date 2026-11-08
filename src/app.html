@@ -1,13 +1,9 @@
 <!doctype html>
-<html lang="pt-BR" class="dark">
+<html lang="%lang%" class="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#050505" />
-    <meta
-      name="description"
-      content="Davi Fontenele — designer criativo, filmmaker e especialista em inteligência artificial aplicada à comunicação."
-    />
     <link rel="icon" href="%sveltekit.assets%/favicon.svg" />
 
     <!-- A fonte do título é crítica para o LCP; as demais carregam pelo CSS local. -->
@@ -25,21 +21,22 @@
       fetchpriority="high"
     />
 
-    <!-- Analytics entra após load/idle para não disputar a renderização inicial. -->
+    <!-- Google Tag Manager (GTM-WK6KVJ2C). Carrega após load/idle para não disputar
+         a renderização inicial — mesmo padrão do site original. -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
       }
       gtag('js', new Date());
-      gtag('config', 'G-543W8H3KPQ');
 
-      function loadAnalytics() {
-        if (document.querySelector('script[data-google-analytics]')) return;
+      function loadTagManager() {
+        if (document.querySelector('script[data-gtm]')) return;
+        window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
         const script = document.createElement('script');
         script.async = true;
-        script.dataset.googleAnalytics = 'true';
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-543W8H3KPQ';
+        script.dataset.gtm = 'true';
+        script.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-WK6KVJ2C';
         document.head.appendChild(script);
       }
 
@@ -47,9 +44,9 @@
         'load',
         () => {
           if ('requestIdleCallback' in window) {
-            window.requestIdleCallback(loadAnalytics, { timeout: 5000 });
+            window.requestIdleCallback(loadTagManager, { timeout: 5000 });
           } else {
-            window.setTimeout(loadAnalytics, 3000);
+            window.setTimeout(loadTagManager, 3000);
           }
         },
         { once: true }

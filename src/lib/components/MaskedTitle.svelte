@@ -10,6 +10,8 @@
     id?: string;
     /** Exibe imediatamente títulos críticos para LCP, como o hero inicial. */
     immediate?: boolean;
+    /** Frases longas (títulos de case): escala própria, ver app.css `.statement`. */
+    statement?: boolean;
   };
   let {
     lines,
@@ -17,7 +19,8 @@
     delay = 0.05,
     as = 'h1',
     id,
-    immediate = false
+    immediate = false,
+    statement = false
   }: Props = $props();
 </script>
 
@@ -26,6 +29,7 @@
   this={as}
   class="case-title masked"
   class:immediate
+  class:statement
   {id}
   data-reduced={nav.reducedMotion}
 >
@@ -45,6 +49,16 @@
     overflow: hidden;
     padding-bottom: 0.04em;
   }
+  /* Frases têm descendentes (g, p, ç, y): a máscara ganha folga embaixo,
+     compensada na margem para manter o ritmo das linhas. */
+  .statement .mask {
+    padding-bottom: 0.14em;
+    margin-bottom: -0.1em;
+  }
+  /* A máscara ficou mais alta: a linha parte de mais baixo para não "vazar" o topo das letras. */
+  .statement .line {
+    transform: translate3d(0, 128%, 0);
+  }
   .line {
     display: block;
     transform: translate3d(0, 108%, 0);
@@ -63,6 +77,7 @@
   }
   /* prefers-reduced-motion: fade simples, sem deslocamento */
   .masked[data-reduced='true'] .line,
+  .masked.statement[data-reduced='true'] .line,
   :global(html) .masked[data-reduced='true'] .line {
     transform: none;
     opacity: 0;
@@ -74,7 +89,8 @@
     }
   }
   @media (prefers-reduced-motion: reduce) {
-    .line {
+    .line,
+    .statement .line {
       transform: none;
       opacity: 0;
       animation: fade 0.4s linear var(--delay) forwards;

@@ -1,16 +1,18 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import type { CaseItem } from '$lib/data/cases';
+  import type { Slide } from '$lib/data/slides';
   import { nav } from '$lib/stores/nav.svelte';
   import ReducedMotionFallback from './ReducedMotionFallback.svelte';
   import { preferMobileVideo } from '$lib/utils/motion';
 
   type Props = {
-    items: CaseItem[];
+    items: Slide[];
+    /** Nomes localizados (alt do poster de fallback). */
+    names: string[];
     /** Elementos <video> expostos para o ShaderTransition. */
     videoEls?: (HTMLVideoElement | null)[];
   };
-  let { items, videoEls = $bindable([]) }: Props = $props();
+  let { items, names, videoEls = $bindable([]) }: Props = $props();
 
   let mobile = $state(false);
   /** Só monta <video> depois de saber se é mobile — evita travar no source desktop. */
@@ -27,13 +29,20 @@
    * Expõe uma única URL por vez para impedir que o browser baixe MP4 + WebM.
    * Mobile prefere o corte leve; qualquer falha troca para o MP4 desktop.
    */
-  function source(item: CaseItem, i: number): { src: string; type: string } {
-    if (useFallbackSource[i]) return { src: item.video.mp4, type: 'video/mp4' };
-    if (mobile && item.video.mp4Mobile) {
-      return { src: item.video.mp4Mobile, type: 'video/mp4' };
-    }
-    if (mobile) return { src: item.video.mp4, type: 'video/mp4' };
-    return { src: item.video.webm, type: 'video/webm' };
+  function source(item: Slide, i: number): { src: string; type: string } | null {
+    const v = item.video;
+    // Vídeo ainda não entregue: nenhuma requisição; fica o placeholder.
+    if (!v.webm && !v.mp4) return null;
+    if (useFallbackSource[i] && v.mp4) return { src: v.mp4, type: 'video/mp4' };
+    if (mobile && v.mp4Mobile) return { src: v.mp4Mobile, type: 'video/mp4' };
+    if (mobile && v.mp4) return { src: v.mp4, type: 'video/mp4' };
+    if (v.webm) return { src: v.webm, type: 'video/webm' };
+    return v.mp4 ? { src: v.mp4, type: 'video/mp4' } : null;
+  }
+
+  /** Atual e destino carregam tudo; o próximo também, para a transição já ter imagem. */
+  function preloadFor(i: number): 'auto' | 'metadata' {
+    return i === nav.index || i === nav.target || i === nav.index + 1 ? 'auto' : 'metadata';
   }
 
   // Performance: só os vizinhos recebem src; os distantes ficam pausados/descarregados.
@@ -77,8 +86,8 @@
     failed = { ...failed, [i]: true };
   }
 
-  function handleVideoError(item: CaseItem, i: number) {
-    const current = source(item, i).src;
+  function handleVideoError(item: Slide, i: number) {
+    const current = source(item, i)?.src;
     if (!useFallbackSource[i] && current !== item.video.mp4) {
       useFallbackSource = { ...useFallbackSource, [i]: true };
       return;
@@ -156,7 +165,7 @@
       style="--p:{nav.progress}; --dir:{nav.direction}; --clip:{clip}; --accent:{item.accent ??
         '#141414'}"
     >
-      {#if ready && nearby.has(i)}
+      {#if ready && nearby.has(i) && selectedSource}
         {#key selectedSource.src}
           <video
             bind:this={videoEls[i]}
@@ -166,7 +175,7 @@
             playsinline
             loop
             autoplay={i === nav.index}
-            preload={i === nav.index || i === nav.target ? 'auto' : 'metadata'}
+            preload={preloadFor(i)}
             crossorigin="anonymous"
             tabindex="-1"
             oncanplay={(e) => onCanPlay(i, e.currentTarget)}
@@ -178,9 +187,10 @@
       {#if nearby.has(i)}
         <ReducedMotionFallback
           poster={item.video.poster}
-          alt={`Quadro do case ${item.title}`}
+          alt=""
+          label={names[i]}
           accent={item.accent ?? '#141414'}
-          visible={nav.reducedMotion || failed[i] || !ready}
+          visible={nav.reducedMotion || failed[i] || !ready || !selectedSource}
         />
       {/if}
     </div>

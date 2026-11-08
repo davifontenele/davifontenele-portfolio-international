@@ -1,19 +1,27 @@
 <script lang="ts">
-  import { nav } from '$lib/stores/nav.svelte';
+  type Props = {
+    /** Número do case (1…total). 0 = slide fora da contagem (About). */
+    number: number;
+    total: number;
+    name: string;
+  };
+  let { number, total, name }: Props = $props();
   const pad = (n: number) => String(n).padStart(2, '0');
 </script>
 
 <div class="progress" aria-live="polite">
   <p class="label">
-    <span class="num">{pad(nav.index + 1)}</span>
-    <span class="sep">/</span>
-    <span class="total">{pad(nav.total)}</span>
-    <span class="dash">—</span>
-    <span class="title">{nav.current.title}</span>
+    {#if number > 0}
+      <span class="num">{pad(number)}</span>
+      <span class="sep">/</span>
+      <span class="total">{pad(total)}</span>
+      <span class="dash">—</span>
+    {/if}
+    <span class="title">{name}</span>
   </p>
   <ol class="ticks" aria-hidden="true">
-    {#each { length: nav.total } as _, i}
-      <li class:on={i <= nav.index}></li>
+    {#each { length: total } as _, i (i)}
+      <li class:on={number === 0 || i < number}></li>
     {/each}
   </ol>
 </div>

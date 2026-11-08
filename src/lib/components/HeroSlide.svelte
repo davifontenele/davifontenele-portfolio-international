@@ -1,22 +1,24 @@
 <script lang="ts">
-  import type { CaseItem } from '$lib/data/cases';
   import MaskedTitle from './MaskedTitle.svelte';
   import PillButton from './PillButton.svelte';
   import { nav } from '$lib/stores/nav.svelte';
+  import { useI18n } from '$lib/i18n';
 
-  type Props = { item: CaseItem };
-  let { item }: Props = $props();
+  type Props = { onAbout: () => void };
+  let { onAbout }: Props = $props();
+  const i18n = useI18n();
+  const h = $derived(i18n.t.hero);
 </script>
 
 <div class="hero">
-  <p class="eyebrow reveal" style="--d:0.45s">Portfólio · {new Date().getFullYear()}</p>
-  <MaskedTitle lines={item.titleLines ?? [item.title]} as="h1" id="slide-title" immediate />
-  <p class="case-subtitle reveal" style="--d:0.55s">{item.subtitle}</p>
-  <p class="body-text short reveal" style="--d:0.65s">{item.shortText}</p>
+  <p class="eyebrow reveal" style="--d:0.45s">{h.role}</p>
+  <MaskedTitle lines={h.nameLines} as="h1" id="slide-title" immediate />
+  <p class="case-subtitle reveal" style="--d:0.55s">{h.statement}</p>
+  <p class="body-text short reveal" style="--d:0.65s">{h.supporting}</p>
+  <p class="eyebrow expertise reveal" style="--d:0.7s">{h.expertise}</p>
   <div class="actions reveal" style="--d:0.75s">
-    <PillButton onclick={() => nav.go(1)} label="Ver os projetos de Davi Fontenele">
-      Ver projetos
-    </PillButton>
+    <PillButton onclick={() => nav.go(1)}>{h.ctaPrimary}</PillButton>
+    <PillButton variant="ghost" onclick={onAbout}>{h.ctaSecondary}</PillButton>
   </div>
 </div>
 
@@ -33,9 +35,14 @@
     margin-top: 1.5rem;
     max-width: 52ch;
   }
+  .expertise {
+    margin: 1.25rem 0 0;
+    letter-spacing: 0.16em;
+  }
   .actions {
     margin-top: 2.25rem;
     display: flex;
+    flex-wrap: wrap;
     gap: 0.75rem;
   }
   .reveal {

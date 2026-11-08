@@ -1,28 +1,47 @@
 <script lang="ts">
   import { nav } from '$lib/stores/nav.svelte';
+  import { useI18n } from '$lib/i18n';
+
+  /**
+   * Anterior/próximo. São links reais (URLs localizadas) para que crawlers e
+   * "abrir em nova aba" funcionem; o clique normal mantém a transição de faixas.
+   */
+  type Props = { prevHref: string | null; nextHref: string | null };
+  let { prevHref, nextHref }: Props = $props();
+  const i18n = useI18n();
+
+  function go(e: MouseEvent, dir: 1 | -1) {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+    e.preventDefault();
+    nav.go(dir);
+  }
 </script>
 
 <div class="navigator">
   <p class="hint" aria-hidden="true">
-    <span class="desktop">Scroll</span><span class="mobile">Swipe</span>
+    <span class="desktop">{i18n.t.ui.scrollHint}</span><span class="mobile"
+      >{i18n.t.ui.swipeHint}</span
+    >
   </p>
   <div class="arrows">
-    <button
-      type="button"
-      aria-label="Case anterior"
-      disabled={nav.index === 0}
-      onclick={() => nav.go(-1)}
-    >
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4 L7 12 L15 20" /></svg>
-    </button>
-    <button
-      type="button"
-      aria-label="Próximo case"
-      disabled={nav.index === nav.total - 1}
-      onclick={() => nav.go(1)}
-    >
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 L17 12 L9 20" /></svg>
-    </button>
+    {#if prevHref}
+      <a class="btn" href={prevHref} aria-label={i18n.t.ui.previous} onclick={(e) => go(e, -1)}>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4 L7 12 L15 20" /></svg>
+      </a>
+    {:else}
+      <button class="btn" type="button" disabled aria-label={i18n.t.ui.previous}>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4 L7 12 L15 20" /></svg>
+      </button>
+    {/if}
+    {#if nextHref}
+      <a class="btn" href={nextHref} aria-label={i18n.t.ui.next} onclick={(e) => go(e, 1)}>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 L17 12 L9 20" /></svg>
+      </a>
+    {:else}
+      <button class="btn" type="button" disabled aria-label={i18n.t.ui.next}>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 L17 12 L9 20" /></svg>
+      </button>
+    {/if}
   </div>
 </div>
 
@@ -50,7 +69,7 @@
     display: flex;
     gap: 6px;
   }
-  button {
+  .btn {
     width: 38px;
     height: 38px;
     display: grid;
@@ -65,14 +84,14 @@
       border-color 220ms var(--ease-cine),
       opacity 220ms var(--ease-cine);
   }
-  button:hover:not(:disabled) {
+  a.btn:hover {
     background: #fff;
     border-color: #fff;
   }
-  button:hover:not(:disabled) svg {
+  a.btn:hover svg {
     stroke: #060606;
   }
-  button:disabled {
+  .btn:disabled {
     opacity: 0.28;
     cursor: default;
   }

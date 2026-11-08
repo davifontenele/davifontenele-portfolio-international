@@ -1,4 +1,4 @@
-import { cases } from '$lib/data/cases';
+import { slides } from '$lib/data/slides';
 import {
   clamp,
   easeOutExpo,
@@ -6,7 +6,7 @@ import {
   supportsWebGL
 } from '$lib/utils/motion';
 
-const TOTAL = cases.length;
+const TOTAL = slides.length;
 
 /**
  * Estado global de navegação.
@@ -36,13 +36,32 @@ class NavState {
     return this.target >= 0;
   }
   get current() {
-    return cases[this.index];
+    return slides[this.index];
   }
-  /** Só mantém vídeos necessários para o quadro atual e a transição ativa. */
-  get nearby(): number[] {
+  /** Vídeos que precisam de frame pronto: atual e destino da transição. */
+  get active(): number[] {
     const set = new Set([this.index]);
     if (this.target >= 0) set.add(this.target);
     return [...set].filter((i) => i >= 0 && i < TOTAL);
+  }
+  /**
+   * Vídeos montados: atual, destino e vizinhos imediatos (pré-carga).
+   * Os vizinhos ficam pausados no primeiro frame; assim a transição já
+   * começa com imagem real em vez do gradiente procedural.
+   */
+  get nearby(): number[] {
+    const set = new Set(this.active);
+    set.add(this.index + 1);
+    set.add(this.index - 1);
+    return [...set].filter((i) => i >= 0 && i < TOTAL);
+  }
+
+  /** Estado inicial vindo da URL (deep link). Sem animação. */
+  setInitial(index: number, open: boolean) {
+    this.index = clamp(index, 0, TOTAL - 1);
+    this.target = -1;
+    this.progress = 0;
+    this.open = open && slides[this.index]?.type !== 'hero';
   }
 
   init() {
@@ -102,7 +121,7 @@ class NavState {
   openCase() {
     if (this.transitioning) return;
     // Hero não tem painel expandido — só navegação horizontal entre slides.
-    if (cases[this.index]?.type === 'hero') return;
+    if (slides[this.index]?.type === 'hero') return;
     this.open = true;
   }
   closeCase() {

@@ -172,3 +172,14 @@ button {
     scroll-behavior: auto !important;
   }
 }
+
+/* ============================================================
+   Títulos-frase dos cases (modo "statement", ver docs/TYPOGRAPHY.md)
+   Mesma família, peso e tracking do título monumental; escala
+   dimensionada para frases de 2–3 linhas com quebras deliberadas.
+   ============================================================ */
+.case-title.statement {
+  font-size: clamp(2.6rem, 6.4vw, 7.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+}

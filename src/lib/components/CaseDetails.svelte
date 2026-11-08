@@ -1,65 +1,65 @@
 <script lang="ts">
-  import type { CaseItem } from '$lib/data/cases';
+  import type { CaseSlug, Slide } from '$lib/data/slides';
   import PillButton from './PillButton.svelte';
+  import CaseBlocks from './CaseBlocks.svelte';
+  import RichText from './RichText.svelte';
   import { nav } from '$lib/stores/nav.svelte';
+  import { useI18n } from '$lib/i18n';
 
-  type Props = { item: CaseItem };
-  let { item }: Props = $props();
+  type Props = { slide: Slide };
+  let { slide }: Props = $props();
+  const i18n = useI18n();
+  const t = $derived(i18n.t);
+  const c = $derived(t.cases[slide.slug as CaseSlug]);
+
+  const overview = $derived(c.sections.find((s) => s.id === 'overview'));
+  const sections = $derived(c.sections.filter((s) => s.id !== 'overview'));
+  /** Contexto e desafio lado a lado (como no .xyz); o resto em largura de leitura. */
+  const half = (id: string) => id === 'context' || id === 'challenge';
+  const overviewParas = $derived(
+    overview?.blocks.flatMap((b) => (b.type === 'p' ? [b.text] : [])) ?? []
+  );
 </script>
 
-<article class="details" aria-label={`Case completo: ${item.title}`}>
-  <header class="lead">
-    <p class="eyebrow">Chamada</p>
-    <p class="short">{item.shortText}</p>
-  </header>
+<article class="details" aria-label={t.ui.fullCaseRegion(c.name)}>
+  {#if overview}
+    <header class="lead">
+      <h2 class="eyebrow">{overview.heading}</h2>
+      {#if overviewParas[0]}<p class="short"><RichText text={overviewParas[0]} /></p>{/if}
+      {#each overviewParas.slice(1) as p, i (i)}
+        <p class="body-text more"><RichText text={p} /></p>
+      {/each}
+    </header>
+  {/if}
 
   <div class="grid">
-    <section>
-      <h3 class="eyebrow">Contexto</h3>
-      <p class="body-text">{item.context}</p>
-    </section>
-
-    <section>
-      <h3 class="eyebrow">Desafio</h3>
-      <p class="body-text">{item.challenge}</p>
-    </section>
+    {#each sections as s (s.id)}
+      <section class:span={!half(s.id)} class:wide={s.id === 'work'}>
+        <h2 class="eyebrow">{s.heading}</h2>
+        <CaseBlocks blocks={s.blocks} />
+      </section>
+    {/each}
 
     <section class="span">
-      <h3 class="eyebrow">Solução</h3>
-      {#each item.solution as p}
-        <p class="body-text">{p}</p>
-      {/each}
-    </section>
-
-    <section class="span">
-      <h3 class="eyebrow">Papel desempenhado</h3>
-      <p class="body-text">{item.role}</p>
-    </section>
-
-    <section class="span">
-      <h3 class="eyebrow">Competências</h3>
+      <h2 class="eyebrow">{t.ui.expertise}</h2>
       <ul class="skills">
-        {#each item.skills as s}
+        {#each c.expertise as s (s)}
           <li>{s}</li>
         {/each}
       </ul>
     </section>
   </div>
 
-  <!-- ÁREA RESERVADA: imagens e vídeos complementares do case.
-       Substitua os placeholders abaixo por arquivos reais em /static/. -->
-  {#if item.media}
-    <section class="media" aria-label="Material complementar">
-      <h3 class="eyebrow">Material complementar</h3>
+  {#if slide.media?.length}
+    <section class="media">
+      <h2 class="eyebrow">{t.ui.gallery}</h2>
       <div class="media-grid">
-        {#each item.media ?? [{ src: '', alt: '', kind: 'image' }, { src: '', alt: '', kind: 'image' }, { src: '', alt: '', kind: 'image' }] as m}
+        {#each slide.media as m, i (m.src)}
           <figure>
-            {#if m.src && m.kind === 'image'}
-              <img src={m.src} alt={m.alt} loading="lazy" decoding="async" />
-            {:else if m.src}
-              <video src={m.src} muted loop playsinline preload="none" aria-label={m.alt}></video>
+            {#if m.kind === 'image'}
+              <img src={m.src} alt={c.mediaAlt?.[i] ?? ''} loading="lazy" decoding="async" />
             {:else}
-              <div class="ph" aria-hidden="true"><span>16:9</span></div>
+              <video src={m.src} muted loop playsinline preload="none" aria-label={c.mediaAlt?.[i] ?? ''}></video>
             {/if}
           </figure>
         {/each}
@@ -68,22 +68,17 @@
   {/if}
 
   <footer class="foot">
-    {#if item.link}
-      <PillButton onclick={() => window.open(item.link, '_blank')} label={item.linkLabel}>
-        {item.linkLabel}
+    {#each slide.links ?? [] as link (link.href)}
+      <PillButton href={link.href} label={`${t.links[link.label]} (${t.ui.opensInNewTab})`}>
+        {t.links[link.label]}
       </PillButton>
-    {/if}
-    {#if item.link2}
-      <PillButton onclick={() => window.open(item.link2, '_blank')} label={item.link2Label}>
-        {item.link2Label}
-      </PillButton>
-    {/if}
-    <PillButton variant="ghost" onclick={() => nav.closeCase()} label="Voltar ao modo fullscreen">
-      Voltar ao fullscreen
+    {/each}
+    <PillButton variant="ghost" onclick={() => nav.closeCase()}>
+      {t.ui.backToFullscreen}
     </PillButton>
     {#if nav.index < nav.total - 1}
-      <PillButton variant="ghost" onclick={() => nav.go(1)} label="Ir para o próximo case">
-        Próximo case →
+      <PillButton variant="ghost" onclick={() => nav.go(1)}>
+        {t.ui.next} <span aria-hidden="true">→</span>
       </PillButton>
     {/if}
   </footer>
@@ -99,6 +94,9 @@
     border-top: 1px solid var(--line);
     margin-top: 2rem;
   }
+  .lead h2 {
+    margin: 0;
+  }
   .short {
     font-family: var(--font-ui);
     font-weight: 200;
@@ -107,6 +105,10 @@
     color: #fff;
     margin: 0.9rem 0 0;
     max-width: 46ch;
+  }
+  .more {
+    margin: 1.25rem 0 0;
+    max-width: 62ch;
   }
   .grid {
     display: grid;
@@ -117,12 +119,11 @@
     grid-column: 1 / -1;
     max-width: 62ch;
   }
-  .grid h3 {
-    margin: 0 0 0.9rem;
+  .grid .wide {
+    max-width: none;
   }
-  .grid p {
-    margin: 0 0 1rem;
-    max-width: 62ch;
+  .grid h2 {
+    margin: 0 0 0.9rem;
   }
   .skills {
     list-style: none;
@@ -154,20 +155,12 @@
     margin: 0;
   }
   figure img,
-  figure video,
-  .ph {
+  figure video {
     width: 100%;
     aspect-ratio: 16 / 9;
     object-fit: cover;
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid var(--line);
-  }
-  .ph {
-    display: grid;
-    place-items: center;
-    color: rgba(255, 255, 255, 0.22);
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
   }
   .foot {
     margin-top: 4rem;

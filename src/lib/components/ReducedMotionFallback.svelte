@@ -5,8 +5,8 @@
    * - o autoplay do vídeo falhou, ou
    * - o arquivo de vídeo ainda não existe (placeholders).
    */
-  type Props = { poster: string; alt: string; visible?: boolean; accent?: string };
-  let { poster, alt, visible = true, accent = '#1a1a1a' }: Props = $props();
+  type Props = { poster: string; alt: string; label?: string; visible?: boolean; accent?: string };
+  let { poster, alt, label, visible = true, accent = '#1a1a1a' }: Props = $props();
 
   /** Se o poster ainda não existir, some com a imagem e fica só o gradiente. */
   function hideBroken(e: Event) {
@@ -14,8 +14,8 @@
   }
 </script>
 
-<div class="fallback" class:visible aria-hidden={!visible} style="--accent:{accent}">
-  {#if visible}
+<div class="fallback" class:visible aria-hidden="true" data-label={label} style="--accent:{accent}">
+  {#if visible && poster}
     <!-- Só baixa o poster quando a camada está realmente visível. -->
     <img src={poster} {alt} loading="eager" decoding="async" onerror={hideBroken} />
   {/if}
