@@ -93,7 +93,7 @@ export const slides: Slide[] = [
     slug: '3lane',
     type: 'case',
     // Vídeo e poster ainda não entregues — placeholder procedural.
-    video: media('3lane', { missing: true }),
+    video: media('design-direction', { missing: true }),
     accent: '#22303f'
   },
   {
