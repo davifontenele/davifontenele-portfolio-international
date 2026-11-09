@@ -85,7 +85,7 @@ export const slides: Slide[] = [
   {
     slug: 'auag',
     type: 'case',
-    video: media('auag'),
+    video: media('auag_new'),
     accent: '#3b3320',
     links: [{ href: 'https://auag.com', label: 'visitWebsite' }]
   },
