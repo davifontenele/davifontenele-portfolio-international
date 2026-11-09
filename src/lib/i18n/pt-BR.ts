@@ -639,7 +639,7 @@ export const ptBR: Dictionary = {
 
     'espaco-fashion': {
       name: 'Espaço Fashion',
-      titleLines: ['Transformando consumidoras', 'em criadoras', 'de conteúdo.'],
+      titleLines: ['Transformando', 'consumidoras', 'em criadoras', 'de conteúdo.'],
       subtitle:
         'Uma experiência premiada pelo iF Communication Design Award que combinou vídeo, design interativo e conteúdo gerado pelo usuário.',
       cta: 'Ver o case completo',
