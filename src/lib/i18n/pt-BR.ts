@@ -257,9 +257,9 @@ export const ptBR: Dictionary = {
 
     '3lane': {
       name: '3Lane Marketing',
-      titleLines: ['Liderança de design', 'entre equipes, setores', 'e fronteiras.'],
+      titleLines: ['Liderança de design', 'entre equipes,', 'setores e fronteiras.'],
       subtitle:
-        'Direção de design, pesquisa com usuários e colaboração multidisciplinar em nove projetos digitais para organizações americanas.',
+        'Direção de design, pesquisa com usuários e colaboração multidisciplinar em nove projetos digitais para organizações estadunidenses.',
       cta: 'Ver o case completo',
       sections: [
         {
@@ -268,11 +268,11 @@ export const ptBR: Dictionary = {
           blocks: [
             {
               type: 'p',
-              text: 'Nove projetos entregues. Múltiplos setores. Equipes distribuídas em cinco países.'
+              text: 'Nove projetos entregues. Múltiplos setores. Equipes distribuídas em seis países.'
             },
             {
               type: 'p',
-              text: 'Como Design Director na 3Lane Marketing, conectei discovery, pesquisa, direção criativa, relacionamento com clientes e controle de qualidade no desenvolvimento de experiências digitais para organizações americanas.'
+              text: 'Como Design Director na 3Lane Marketing, conectei discovery, pesquisa, direção criativa, relacionamento com clientes e controle de qualidade no desenvolvimento de experiências digitais para organizações estadunidenses.'
             }
           ]
         },
@@ -282,7 +282,7 @@ export const ptBR: Dictionary = {
           blocks: [
             {
               type: 'p',
-              text: 'A 3Lane Marketing é uma agência americana que desenvolve projetos para organizações de setores como educação, saúde, planejamento urbano, indústria, meio ambiente e comunicação pública.'
+              text: 'A 3Lane Marketing é uma agência estadunidense que desenvolve projetos para organizações de setores como educação, saúde, planejamento urbano, indústria, meio ambiente e comunicação pública.'
             },
             {
               type: 'p',
@@ -395,8 +395,8 @@ export const ptBR: Dictionary = {
             {
               type: 'list',
               items: [
-                'Nove projetos digitais coordenados e entregues para organizações americanas.',
-                'Colaboração em design com equipes distribuídas em cinco países.',
+                'Nove projetos digitais coordenados e entregues para organizações estadunidenses.',
+                'Colaboração em design com equipes distribuídas em seis países.',
                 'Processo consistente do discovery à entrega, adaptado a diferentes setores e necessidades institucionais.',
                 'Participação direta em pesquisa, direção criativa, relacionamento com stakeholders e qualidade de implementação.'
               ]
@@ -481,7 +481,7 @@ export const ptBR: Dictionary = {
 
     reserva: {
       name: 'Reserva',
-      titleLines: ['Transformando uma crise', 'em uma ideia que', 'definiu uma marca.'],
+      titleLines: ['Transformando crise', 'em uma ideia que', 'definiu uma marca.'],
       subtitle:
         'Como uma campanha viral impulsionou as vendas do e-commerce em 9.900% e ajudou a construir uma filosofia duradoura de marca.',
       cta: 'Ver o case completo',
@@ -639,7 +639,7 @@ export const ptBR: Dictionary = {
 
     'espaco-fashion': {
       name: 'Espaço Fashion',
-      titleLines: ['Transformando consumidoras', 'de moda em criadoras', 'de conteúdo.'],
+      titleLines: ['Transformando consumidoras', 'em criadoras', 'de conteúdo.'],
       subtitle:
         'Uma experiência premiada pelo iF Communication Design Award que combinou vídeo, design interativo e conteúdo gerado pelo usuário.',
       cta: 'Ver o case completo',
@@ -1085,7 +1085,7 @@ export const ptBR: Dictionary = {
         },
         {
           value: '9 projetos digitais',
-          label: 'Coordenados e entregues para organizações americanas na 3Lane.'
+          label: 'Coordenados e entregues para organizações estadunidenses na 3Lane.'
         },
         {
           value: 'iF Communication Design Award',

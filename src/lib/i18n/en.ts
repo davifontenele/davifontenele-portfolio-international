@@ -257,7 +257,7 @@ export const en: Dictionary = {
 
     '3lane': {
       name: '3Lane Marketing',
-      titleLines: ['Leading design', 'across teams, industries,', 'and borders.'],
+      titleLines: ['Leading design', 'across teams,', 'industries,', 'and borders.'],
       subtitle:
         'Design direction, user research, and cross-functional collaboration across nine digital projects for US organizations.',
       cta: 'Explore the case',
@@ -268,11 +268,11 @@ export const en: Dictionary = {
           blocks: [
             {
               type: 'p',
-              text: 'Nine delivered digital projects. Multiple industries. Teams distributed across five countries.'
+              text: 'Nine delivered digital projects. Multiple industries. Teams distributed across six countries.'
             },
             {
               type: 'p',
-              text: 'As Design Director at 3Lane Marketing, I connected discovery, research, creative direction, client relationships, and design quality throughout the delivery of digital experiences for American organizations.'
+              text: 'As Design Director at 3Lane Marketing, I connected discovery, research, creative direction, client relationships, and design quality throughout the delivery of digital experiences for US organizations.'
             }
           ]
         },
