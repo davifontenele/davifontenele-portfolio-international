@@ -4,12 +4,14 @@
   import { page } from '$app/state';
   import { slides, caseIndex, whatsappUrl, type CaseSlug } from '$lib/data/slides';
   import {
+    dictionaries,
     provideI18n,
     pathFor,
     hreflang,
     locales,
     SITE_URL,
     STORAGE_KEY,
+    ogImage,
     type Locale,
     type Route
   } from '$lib/i18n';
@@ -93,7 +95,12 @@
     locales.map((l) => ({ hreflang: hreflang[l], href: SITE_URL + pathFor(l, currentRoute) }))
   );
   const xDefault = $derived(SITE_URL + pathFor('en', currentRoute));
-  const ogImage = `${SITE_URL}/images/social/davifontenele-og.jpg`;
+  // Imagem de compartilhamento do idioma da página (vale para home, cases e About).
+  const og = $derived(ogImage[data.locale]);
+  const ogAlt = $derived(`${t.hero.nameLines.join(' ')} — ${t.hero.role}. ${t.hero.statement}`);
+  const otherOgLocales = $derived(
+    locales.filter((l) => l !== data.locale).map((l) => dictionaries[l].meta.ogLocale)
+  );
 
   // ---------- URL acompanha a navegação, sem recarregar ----------
   $effect(() => {
@@ -304,15 +311,24 @@
   <link rel="alternate" hreflang="x-default" href={xDefault} />
   <meta property="og:site_name" content={t.meta.siteName} />
   <meta property="og:locale" content={t.meta.ogLocale} />
+  {#each otherOgLocales as l (l)}
+    <meta property="og:locale:alternate" content={l} />
+  {/each}
   <meta property="og:url" content={canonical} />
   <meta property="og:type" content="website" />
   <meta property="og:title" content={head.title} />
   <meta property="og:description" content={head.description} />
-  <meta property="og:image" content={ogImage} />
+  <meta property="og:image" content={og.url} />
+  <meta property="og:image:secure_url" content={og.url} />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content={String(og.width)} />
+  <meta property="og:image:height" content={String(og.height)} />
+  <meta property="og:image:alt" content={ogAlt} />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={head.title} />
   <meta name="twitter:description" content={head.description} />
-  <meta name="twitter:image" content={ogImage} />
+  <meta name="twitter:image" content={og.url} />
+  <meta name="twitter:image:alt" content={ogAlt} />
 </svelte:head>
 
 <!-- Fundo: vídeos (sempre em reprodução) + canvas WebGL das faixas verticais -->

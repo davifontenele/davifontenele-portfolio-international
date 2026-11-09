@@ -19,6 +19,12 @@ export const sectionSegment = {
 
 export const STORAGE_KEY = 'df-lang';
 
+/** Imagem de compartilhamento (Open Graph / Twitter) de cada idioma — 1200×630. */
+export const ogImage: Record<Locale, { url: string; width: number; height: number }> = {
+  en: { url: `${SITE_URL}/images/social/davifontenele-og_en.jpg`, width: 1200, height: 630 },
+  'pt-BR': { url: `${SITE_URL}/images/social/davifontenele-og_pt.jpg`, width: 1200, height: 630 }
+};
+
 export function localeFromSegment(seg: string | undefined): Locale | null {
   return (Object.keys(localeSegment) as Locale[]).find((l) => localeSegment[l] === seg) ?? null;
 }
