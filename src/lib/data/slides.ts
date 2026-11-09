@@ -144,7 +144,7 @@ export const slides: Slide[] = [
   {
     slug: 'rocinha-up',
     type: 'case',
-    video: media('rocinha-up'),
+    video: media('rocinha-up_novo'),
     accent: '#1f3a2c',
     links: [
       { href: 'https://rocinhaup.com', label: 'visitWebsite' },
