@@ -1089,7 +1089,7 @@ export const en: Dictionary = {
         },
         {
           value: '9 digital projects',
-          label: 'Coordinated and delivered for US organizations at 3Lane.'
+          label: 'Coordinated and delivered for US organizations at 3Lane Marketing in 10 months as Design Director.'
         },
         {
           value: 'iF Communication Design Award',

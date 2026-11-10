@@ -1081,11 +1081,11 @@ export const ptBR: Dictionary = {
         { value: '25+ anos', label: 'Atuando em design, tecnologia criativa e experiências digitais.' },
         {
           value: '5 países',
-          label: 'Equipes distribuídas internacionalmente durante minha atuação na 3Lane.'
+          label: 'Equipes distribuídas internacionalmente durante minha atuação na 3Lane Marketing.'
         },
         {
           value: '9 projetos digitais',
-          label: 'Coordenados e entregues para organizações estadunidenses na 3Lane.'
+          label: 'Coordenados e entregues para organizações estadunidenses na 3Lane Marketing em 10 meses como Diretor de Design.'
         },
         {
           value: 'iF Communication Design Award',
