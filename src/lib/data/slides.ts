@@ -79,7 +79,7 @@ export const slides: Slide[] = [
   {
     slug: 'hero',
     type: 'hero',
-    video: media('hero', { mobile: true }),
+    video: media('hero-director'),
     accent: '#2b2f36'
   },
   {
