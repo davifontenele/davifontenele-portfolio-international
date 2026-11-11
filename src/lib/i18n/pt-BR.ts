@@ -262,8 +262,8 @@ export const ptBR: Dictionary = {
             quote: 'Davi foi fundamental na reformulação do site da AuAg e no desenvolvimento do design e das funcionalidades do MVP do nosso aplicativo de investimentos. Sua experiência em UI/UX e geração de vídeos com IA, aliada à capacidade técnica e à criatividade para resolver problemas, fez dele um profissional de enorme valor para nossa equipe.',
             name: 'Thomas Gardner',
             role: 'CEO',
-            organization: 'AuAg',                       // opcional
-            photo: '/images/testimonials/thomas-gardner.jpg',        // opcional, quadrada, ≥ 160 px
+            organization: 'AuAg',
+            photo: '/images/testimonials/thomas-gardner.jpg',
             url: 'https://www.linkedin.com/in/thomas-gardner-a88a1513/'
           }
         ]
@@ -656,15 +656,15 @@ export const ptBR: Dictionary = {
             quote: 'Genial! Genial! Genial! Genial! Genial!',
             name: 'Sérgio Valente',
             role: 'Então presidente da DM9DDB, prestes a assumir a diretoria de comunicação da Rede Globo, compartilhou o vídeo em sua mídia social com este comentário.',
-            photo: '/images/testimonials/sergio-valente.jpg',        // opcional, quadrada, ≥ 160 px
+            photo: '/images/testimonials/sergio-valente.jpg',
           }
         ],
         references: [
           {
-            title: 'Rebedes tem asas',
+            title: 'Rebeldes têm asas',
             publication: 'Como pode ser visto no livro',
-            url: 'https://www.amazon.com.br/Rebeldes-t%C3%AAm-asas-Rony-Meisler/dp/8543105250',                              // opcional
-            note: 'Página 332: "Transformando limão em limonada"' // opcional
+            url: 'https://www.amazon.com.br/Rebeldes-t%C3%AAm-asas-Rony-Meisler/dp/8543105250',
+            note: 'Página 332: "Transformando limão em limonada"'
           }
         ]
       }
@@ -790,27 +790,26 @@ export const ptBR: Dictionary = {
             quote: 'Eu e Davi nos conhecemos ha muito tempo quando, num primeiro momento, ele veio trabalhar comigo na 6D, empresa de Branding e Comunicação que fundei e até hoje sigo à frente. À época, Davi, ainda bem novo, já mostrava seu talento como criador e, principalmente, desenvolvedor digital de suas criações. Trabalhamos por alguns anos juntos, mas logo nos tornamos amigos e minha admiração por ele só cresceu. O talento, claro, lapidado ao longo dos anos, só evoluiu e, pessoalmente, nos tornamos amigos. Pessoa boa e profissional talentoso a quem eu, carinhosamente, chamo de Oráculo.',
             name: 'Lula Freitas',
             role: 'Fundador e CEO',
-            organization: '6D',                       // opcional
-            photo: '/images/testimonials/lula-freitas.jpg',        // opcional, quadrada, ≥ 160 px
-            translatedFrom: 'pt-BR'                        // só na versão traduzida
+            organization: '6D',
+            photo: '/images/testimonials/lula-freitas.jpg'
           },
         ],
         references: [
           {
             title: 'iF Communication Design Award',
             publication: 'Branding & Communication Design',
-            author: 'Categoria Websites',                               // opcional
-            date: '2011',                                  // opcional
-            url: 'https://ifdesign.com/de/winner-ranking/project/espaco-fashion/81107',                              // opcional
-            note: 'Mais informações no link' // opcional
+            author: 'Categoria Websites',
+            date: '2011',
+            url: 'https://ifdesign.com/de/winner-ranking/project/espaco-fashion/81107',
+            note: 'Mais informações no link'
           },
           {
             title: 'Prêmio Peixe Grande (extinto)',
             publication: 'Vencedor Geral',
-            author: 'Honraria máxima do evento',                               // opcional
-            date: '2011',                                  // opcional
-            url: 'https://www.revistawide.com.br/2026/04/premio-peixe-grande-o-concurso-que.html',                              // opcional
-            note: 'Mais informações no link' // opcional
+            author: 'Honraria máxima do evento',
+            date: '2011',
+            url: 'https://www.revistawide.com.br/2026/04/premio-peixe-grande-o-concurso-que.html',
+            note: 'Mais informações no link'
           }
         ]
       }
@@ -937,19 +936,17 @@ export const ptBR: Dictionary = {
             quote: 'Tive o prazer de trabalhar alguns anos ao lado do Davi e não só durante estes anos como também após eles, Davi sempre se mostrou comprometido e proativo. Daqueles que vestem a camisa e jogam o time pra cima. Acabou virando um grande amigo!',
             name: 'Emílio Rangel',
             role: 'Diretor de Criação',
-            organization: '6D',                       // opcional
-            photo: '/images/testimonials/emilio-rangel.jpg',        // opcional, quadrada, ≥ 160 px
-            translatedFrom: 'pt-BR'                        // só na versão traduzida
+            organization: '6D',
+            photo: '/images/testimonials/emilio-rangel.jpg'
           }
         ],
         references: [
           {
             title: '101 Examples of Text Treatments on the Web',
-            publication: 'webdesigner`s depot',
-            author: 'WDD Staff',                               // opcional
-            date: 'Abril de 2009',                                  // opcional
-            url: 'https://webdesignerdepot.com/101-examples-of-text-treatments-on-the-web/',                              // opcional
-            note: 'Uma linha sobre a relevância (traduzir).' // opcional
+            publication: 'Webdesigner Depot',
+            author: 'WDD Staff',
+            date: 'Abril de 2009',
+            url: 'https://webdesignerdepot.com/101-examples-of-text-treatments-on-the-web/'
           }
         ]
       }

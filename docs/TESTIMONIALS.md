@@ -21,7 +21,8 @@ salinas: {
         organization: 'Empresa',                       // opcional
         photo: '/images/testimonials/nome.jpg',        // opcional, quadrada, ≥ 160 px
         url: 'https://www.linkedin.com/in/…',          // opcional
-        translatedFrom: 'pt-BR'                        // só na versão traduzida
+        translatedFrom: 'pt-BR',                       // só na versão traduzida
+        highlight: true                                // opcional — ver "Destaque"
       }
     ],
     references: [
@@ -37,6 +38,22 @@ salinas: {
   }
 }
 ```
+
+## Destaque (`highlight: true`)
+
+Para um depoimento de extrema importância, acrescente `highlight: true`. Ele passa a ser a
+**primeira coisa do detalhamento do case**, antes da visão geral, e sai do bloco final
+(não aparece duplicado). Marque o mesmo depoimento nos dois idiomas.
+
+- Sem rótulo "Depoimentos": no topo, a citação fala por si.
+- Se mais de um depoimento estiver marcado, o primeiro fica em destaque e os demais
+  em grade logo abaixo. O recomendado é marcar no máximo um por case.
+- As referências continuam no fim do case.
+
+## Tamanho do texto
+
+Até ~220 caracteres, o depoimento principal usa a escala grande. Acima disso, usa uma
+escala intermediária, para não ocupar mais de uma tela.
 
 ## Regras de conteúdo
 

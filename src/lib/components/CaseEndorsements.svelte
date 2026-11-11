@@ -3,17 +3,27 @@
   import { useI18n } from '$lib/i18n';
 
   /**
-   * Fecho do case: depoimentos e/ou referências.
-   * Não renderiza nada se o case não tiver conteúdo — nunca exibe placeholder.
+   * Depoimentos e/ou referências do case.
+   * - `closing` (padrão): fecho do case — depoimentos comuns + referências.
+   * - `opening`: só os depoimentos com `highlight: true`, no topo do detalhamento.
+   * Não renderiza nada se não houver conteúdo — nunca exibe placeholder.
    */
-  let { data }: { data?: Endorsements } = $props();
+  type Props = { data?: Endorsements; placement?: 'opening' | 'closing' };
+  let { data, placement = 'closing' }: Props = $props();
   const i18n = useI18n();
   const t = $derived(i18n.t);
+  const opening = $derived(placement === 'opening');
 
-  const testimonials = $derived(data?.testimonials ?? []);
-  const references = $derived(data?.references ?? []);
+  const testimonials = $derived(
+    (data?.testimonials ?? []).filter((p) => (opening ? p.highlight : !p.highlight))
+  );
+  const references = $derived(opening ? [] : (data?.references ?? []));
   const featured = $derived(testimonials[0]);
   const others = $derived(testimonials.slice(1));
+
+  /** Depoimentos longos usam uma escala menor para não ocupar mais de uma tela. */
+  const LONG = 220;
+  const isLong = (q: string) => q.length > LONG;
 
   const pad = (n: number) => String(n).padStart(2, '0');
   const initials = (name: string) =>
@@ -82,11 +92,16 @@
 {/snippet}
 
 {#if testimonials.length || references.length}
-  <section class="endorsements" aria-label={testimonials.length ? t.ui.testimonials : t.ui.references}>
+  <section
+    class="endorsements"
+    class:opening
+    aria-label={testimonials.length ? t.ui.testimonials : t.ui.references}
+  >
     {#if featured}
-      <h2 class="eyebrow label">{t.ui.testimonials}</h2>
+      <!-- No topo, a citação fala por si: sem rótulo visível. -->
+      {#if !opening}<h2 class="eyebrow label">{t.ui.testimonials}</h2>{/if}
 
-      <figure class="featured" use:reveal>
+      <figure class="featured" class:long={isLong(featured.quote)} use:reveal>
         <span class="mark" aria-hidden="true">“</span>
         <blockquote>
           <p>{featured.quote}</p>
@@ -150,6 +165,20 @@
     margin-top: 5.5rem;
     padding-top: 3.5rem;
     border-top: 1px solid var(--line);
+  }
+  /* Destaque no topo do detalhamento: abre o case, antes da visão geral. */
+  .endorsements.opening {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+  }
+  .featured.long blockquote p {
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    line-height: 1.4;
+    max-width: 44ch;
+    text-wrap: pretty;
+  }
+  .opening .featured {
+    padding-top: clamp(3rem, 7vw, 5rem);
   }
   /* Luz discreta atrás do bloco: destaca o fecho sem competir com o vídeo. */
   .endorsements::before {
@@ -268,6 +297,7 @@
     font-size: 0.8125rem;
     line-height: 1.45;
     color: var(--fg-dim);
+    max-width: 52ch;
   }
   .dot {
     color: var(--fg-faint);

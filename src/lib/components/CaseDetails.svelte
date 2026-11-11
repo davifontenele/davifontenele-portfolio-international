@@ -23,6 +23,8 @@
 </script>
 
 <article class="details" aria-label={t.ui.fullCaseRegion(c.name)}>
+  <!-- Depoimento marcado com `highlight`: primeira coisa do detalhamento. -->
+  <CaseEndorsements data={c.endorsements} placement="opening" />
   {#if overview}
     <header class="lead">
       <h2 class="eyebrow">{overview.heading}</h2>

@@ -255,7 +255,21 @@ export const en: Dictionary = {
         'Adobe After Effects',
         'Motion Graphics',
         'Digital Storytelling'
-      ]
+      ],
+      endorsements: {
+        testimonials: [
+          {
+            quote:
+              "Davi was instrumental in redesigning AuAg's website and in developing the design and functionality of the MVP for our investment app. His expertise in UI/UX and AI video generation, combined with his technical skills and creative problem-solving, made him an enormously valuable member of our team.",
+            name: 'Thomas Gardner',
+            role: 'CEO',
+            organization: 'AuAg',
+            photo: '/images/testimonials/thomas-gardner.jpg',
+            url: 'https://www.linkedin.com/in/thomas-gardner-a88a1513/',
+            translatedFrom: 'pt-BR'
+          }
+        ]
+      }
     },
 
     '3lane': {
@@ -638,7 +652,26 @@ export const en: Dictionary = {
         'Reserva campaign — video frame 1',
         'Reserva campaign — video frame 2',
         'Reserva campaign — video frame 3'
-      ]
+      ],
+      endorsements: {
+        testimonials: [
+          {
+            quote: 'Brilliant! Brilliant! Brilliant! Brilliant! Brilliant!',
+            name: 'Sérgio Valente',
+            role: 'Then president of DM9DDB and about to become communications director at Rede Globo, he shared the video on social media with this comment.',
+            photo: '/images/testimonials/sergio-valente.jpg',
+            translatedFrom: 'pt-BR'
+          }
+        ],
+        references: [
+          {
+            title: 'Rebeldes têm asas',
+            publication: 'As seen in the book',
+            url: 'https://www.amazon.com.br/Rebeldes-t%C3%AAm-asas-Rony-Meisler/dp/8543105250',
+            note: 'Page 332: “Transformando limão em limonada” (“Turning lemons into lemonade”)'
+          }
+        ]
+      }
     },
 
     'espaco-fashion': {
@@ -754,7 +787,38 @@ export const en: Dictionary = {
         'Espaço Fashion interactive catalog — screenshot 1',
         'Espaço Fashion interactive catalog — screenshot 2',
         'Espaço Fashion interactive catalog — screenshot 3'
-      ]
+      ],
+      endorsements: {
+        testimonials: [
+          {
+            quote:
+              'Davi and I have known each other for a long time. We first met when he came to work with me at 6D, the branding and communication company I founded and still lead today. Back then, still very young, Davi already showed his talent as a creator and, above all, as the digital developer of his own creations. We worked together for a few years, but we soon became friends, and my admiration for him only grew. His talent, of course, refined over the years, has only kept evolving — and, personally, we became friends. A good person and a talented professional whom I affectionately call “the Oracle.”',
+            name: 'Lula Freitas',
+            role: 'Founder and CEO',
+            organization: '6D',
+            photo: '/images/testimonials/lula-freitas.jpg',
+            translatedFrom: 'pt-BR'
+          }
+        ],
+        references: [
+          {
+            title: 'iF Communication Design Award',
+            publication: 'Branding & Communication Design',
+            author: 'Websites category',
+            date: '2011',
+            url: 'https://ifdesign.com/de/winner-ranking/project/espaco-fashion/81107',
+            note: 'More information at the link'
+          },
+          {
+            title: 'Prêmio Peixe Grande (now defunct)',
+            publication: 'Overall winner',
+            author: 'The highest honor of the event',
+            date: '2011',
+            url: 'https://www.revistawide.com.br/2026/04/premio-peixe-grande-o-concurso-que.html',
+            note: 'More information at the link'
+          }
+        ]
+      }
     },
 
     salinas: {
@@ -871,7 +935,29 @@ export const en: Dictionary = {
         'Salinas website — screenshot 1',
         'Salinas website — screenshot 2',
         'Salinas website — screenshot 3'
-      ]
+      ],
+      endorsements: {
+        testimonials: [
+          {
+            quote:
+              'I had the pleasure of working alongside Davi for a few years, and not only during those years but also afterward, he always proved committed and proactive. One of those people who are all in and lift the whole team up. He ended up becoming a great friend!',
+            name: 'Emílio Rangel',
+            role: 'Creative Director',
+            organization: '6D',
+            photo: '/images/testimonials/emilio-rangel.jpg',
+            translatedFrom: 'pt-BR'
+          }
+        ],
+        references: [
+          {
+            title: '101 Examples of Text Treatments on the Web',
+            publication: 'Webdesigner Depot',
+            author: 'WDD Staff',
+            date: 'April 2009',
+            url: 'https://webdesignerdepot.com/101-examples-of-text-treatments-on-the-web/'
+          }
+        ]
+      }
     },
 
     'rocinha-up': {

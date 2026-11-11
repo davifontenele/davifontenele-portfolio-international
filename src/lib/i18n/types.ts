@@ -53,6 +53,11 @@ export type Testimonial = {
    * Ex.: depoimento dado em português exibido na versão EN → `translatedFrom: 'pt-BR'`.
    */
   translatedFrom?: 'en' | 'pt-BR';
+  /**
+   * Depoimento de extrema importância: abre o detalhamento do case, antes da
+   * visão geral (e sai do bloco final). Marque o mesmo depoimento nos dois idiomas.
+   */
+  highlight?: boolean;
 };
 
 /** Referência bibliográfica ou de imprensa sobre o projeto. */
