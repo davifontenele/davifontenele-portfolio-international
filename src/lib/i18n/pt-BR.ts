@@ -259,12 +259,13 @@ export const ptBR: Dictionary = {
       endorsements: {
         testimonials: [
           {
-            quote: 'Davi foi fundamental na reformulação do site da AuAg e no desenvolvimento do design e das funcionalidades do MVP do nosso aplicativo de investimentos. Sua experiência em UI/UX e geração de vídeos com IA, aliada à capacidade técnica e à criatividade para resolver problemas, fez dele um profissional de enorme valor para nossa equipe.',
+            quote: 'Davi foi um colaborador-chave na AuAg. Ele foi fundamental na grande reformulação do nosso site e teve papel central no desenvolvimento do MVP do nosso aplicativo de investimentos. Sua capacidade de combinar conhecimento técnico, design e solução criativa de problemas fez dele um membro inestimável da nossa equipe.',
             name: 'Thomas Gardner',
             role: 'CEO',
             organization: 'AuAg',
             photo: '/images/testimonials/thomas-gardner.jpg',
-            url: 'https://www.linkedin.com/in/thomas-gardner-a88a1513/'
+            url: 'https://www.linkedin.com/in/thomas-gardner-a88a1513/',
+            translatedFrom: 'en'
           }
         ]
       }
@@ -663,7 +664,7 @@ export const ptBR: Dictionary = {
           {
             title: 'Rebeldes têm asas',
             publication: 'Como pode ser visto no livro',
-            url: 'https://www.amazon.com.br/Rebeldes-t%C3%AAm-asas-Rony-Meisler/dp/8543105250',
+            url: 'https://www.amazon.com.br/dp/8543105250',
             note: 'Página 332: "Transformando limão em limonada"'
           }
         ]
@@ -787,7 +788,7 @@ export const ptBR: Dictionary = {
       endorsements: {
         testimonials: [
           {
-            quote: 'Eu e Davi nos conhecemos ha muito tempo quando, num primeiro momento, ele veio trabalhar comigo na 6D, empresa de Branding e Comunicação que fundei e até hoje sigo à frente. À época, Davi, ainda bem novo, já mostrava seu talento como criador e, principalmente, desenvolvedor digital de suas criações. Trabalhamos por alguns anos juntos, mas logo nos tornamos amigos e minha admiração por ele só cresceu. O talento, claro, lapidado ao longo dos anos, só evoluiu e, pessoalmente, nos tornamos amigos. Pessoa boa e profissional talentoso a quem eu, carinhosamente, chamo de Oráculo.',
+            quote: 'Eu e Davi nos conhecemos há muito tempo quando, num primeiro momento, ele veio trabalhar comigo na 6D, empresa de Branding e Comunicação que fundei e até hoje sigo à frente. À época, Davi, ainda bem novo, já mostrava seu talento como criador e, principalmente, desenvolvedor digital de suas criações. Trabalhamos por alguns anos juntos, mas logo nos tornamos amigos e minha admiração por ele só cresceu. O talento, claro, lapidado ao longo dos anos, só evoluiu. Pessoa boa e profissional talentoso a quem eu, carinhosamente, chamo de Oráculo.',
             name: 'Lula Freitas',
             role: 'Fundador e CEO',
             organization: '6D',

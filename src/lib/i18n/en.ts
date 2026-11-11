@@ -259,14 +259,14 @@ export const en: Dictionary = {
       endorsements: {
         testimonials: [
           {
+            // Resumo do original em inglês, com as palavras do autor.
             quote:
-              "Davi was instrumental in redesigning AuAg's website and in developing the design and functionality of the MVP for our investment app. His expertise in UI/UX and AI video generation, combined with his technical skills and creative problem-solving, made him an enormously valuable member of our team.",
+              'Davi was a key contributor to AuAg. He was crucial to the large overhaul of our website and played a central role in developing our MVP mobile investing app. His ability to combine technical expertise, design, and creative problem-solving made him an invaluable member of our team.',
             name: 'Thomas Gardner',
             role: 'CEO',
             organization: 'AuAg',
             photo: '/images/testimonials/thomas-gardner.jpg',
-            url: 'https://www.linkedin.com/in/thomas-gardner-a88a1513/',
-            translatedFrom: 'pt-BR'
+            url: 'https://www.linkedin.com/in/thomas-gardner-a88a1513/'
           }
         ]
       }
@@ -667,7 +667,7 @@ export const en: Dictionary = {
           {
             title: 'Rebeldes têm asas',
             publication: 'As seen in the book',
-            url: 'https://www.amazon.com.br/Rebeldes-t%C3%AAm-asas-Rony-Meisler/dp/8543105250',
+            url: 'https://www.amazon.com.br/dp/8543105250',
             note: 'Page 332: “Transformando limão em limonada” (“Turning lemons into lemonade”)'
           }
         ]
@@ -792,7 +792,7 @@ export const en: Dictionary = {
         testimonials: [
           {
             quote:
-              'Davi and I have known each other for a long time. We first met when he came to work with me at 6D, the branding and communication company I founded and still lead today. Back then, still very young, Davi already showed his talent as a creator and, above all, as the digital developer of his own creations. We worked together for a few years, but we soon became friends, and my admiration for him only grew. His talent, of course, refined over the years, has only kept evolving — and, personally, we became friends. A good person and a talented professional whom I affectionately call “the Oracle.”',
+              'Davi and I have known each other for a long time. We first met when he came to work with me at 6D, the branding and communication company I founded and still lead today. Back then, still very young, Davi already showed his talent as a creator and, above all, as the digital developer of his own creations. We worked together for a few years, but we soon became friends, and my admiration for him only grew. His talent, of course, refined over the years, has only kept evolving. A good person and a talented professional whom I affectionately call “the Oracle.”',
             name: 'Lula Freitas',
             role: 'Founder and CEO',
             organization: '6D',
