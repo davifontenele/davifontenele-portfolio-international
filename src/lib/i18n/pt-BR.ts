@@ -941,6 +941,13 @@ export const ptBR: Dictionary = {
             role: 'Diretor de Criação',
             organization: '6D',
             photo: '/images/testimonials/emilio-rangel.jpg'
+          },
+          {
+            quote: 'Davi Fontenele é um cara incrível. Super talentoso e criativo. Vai do design ao desenvolvimento. Ficou por anos na 6D e até hoje é muito querido por todos na casa. Super recomendo.',
+            name: 'Tola Faria',
+            role: 'Diretor de Atendimento',
+            organization: '6D',
+            photo: '/images/testimonials/tola-faria.jpg'
           }
         ],
         references: [
@@ -1104,7 +1111,19 @@ export const ptBR: Dictionary = {
         'Impacto Social',
         'Iconografia',
         'Manual de Identidade'
-      ]
+      ],
+      endorsements: {
+        testimonials: [
+          {
+            quote: 'Sem ele meus negócios não andam! Obrigada Davi!',
+            name: 'Paula Maia',
+            role: 'Fundadora e CEO',
+            organization: 'Faz Girar Market',                       // opcional
+            photo: '/images/testimonials/paula-maia.jpg',        // opcional, quadrada, ≥ 160 px
+            url: 'https://www.linkedin.com/in/paula-machado-maia-0a8ab425/'          // opcional
+          }
+        ]
+      }
     }
   },
   about: {
