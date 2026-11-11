@@ -36,6 +36,44 @@ export type CaseSection = {
   blocks: Block[];
 };
 
+/** Depoimento de uma pessoa real, com autorização para publicação. */
+export type Testimonial = {
+  /** Texto exatamente como aprovado pelo autor (sem aspas). */
+  quote: string;
+  name: string;
+  /** Cargo/função na época do projeto. */
+  role: string;
+  organization?: string;
+  /** Foto quadrada em /static (ex.: '/images/testimonials/nome.jpg'). Opcional. */
+  photo?: string;
+  /** Perfil público (LinkedIn etc.). Opcional. */
+  url?: string;
+  /**
+   * Idioma original, quando o texto exibido é uma tradução.
+   * Ex.: depoimento dado em português exibido na versão EN → `translatedFrom: 'pt-BR'`.
+   */
+  translatedFrom?: 'en' | 'pt-BR';
+};
+
+/** Referência bibliográfica ou de imprensa sobre o projeto. */
+export type Reference = {
+  /** Título original da publicação — não traduzir. */
+  title: string;
+  /** Veículo, livro, site ou evento. */
+  publication: string;
+  author?: string;
+  /** Ano ou data como deve aparecer (ex.: '2011', 'Mar. 2011'). */
+  date?: string;
+  url?: string;
+  /** Linha curta explicando a relevância. Localizada. */
+  note?: string;
+};
+
+export type Endorsements = {
+  testimonials?: Testimonial[];
+  references?: Reference[];
+};
+
 export type CaseCopy = {
   /** Nome da marca/projeto — progresso, eyebrow, metadados. */
   name: string;
@@ -47,6 +85,8 @@ export type CaseCopy = {
   expertise: string[];
   /** Texto alternativo da galeria, na mesma ordem de `slides[].media`. */
   mediaAlt?: string[];
+  /** Depoimentos e referências exibidos no fim do case (ver docs/TESTIMONIALS.md). */
+  endorsements?: Endorsements;
   /** Somente 3Lane: nome e descrição dos nove projetos, por id. */
   projects?: Record<string, { name: string; description: string }>;
 };
@@ -79,6 +119,9 @@ export type Dictionary = {
     backToTop: string;
     expertise: string;
     gallery: string;
+    testimonials: string;
+    references: string;
+    translatedFrom: Record<'en' | 'pt-BR', string>;
     getInTouch: string;
     /** Rótulos acessíveis (a11y). */
     caseRegion: (name: string) => string;

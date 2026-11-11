@@ -33,6 +33,9 @@ export const en: Dictionary = {
     backToTop: 'Back to top',
     expertise: 'Expertise',
     gallery: 'Gallery', // pending approval
+    testimonials: 'Testimonials', // pending approval
+    references: 'References', // pending approval
+    translatedFrom: { en: 'Translated from English', 'pt-BR': 'Translated from Portuguese' }, // pending approval
     getInTouch: 'Get in touch',
     caseRegion: (name) => `Project: ${name}`, // a11y
     fullCaseRegion: (name) => `Full case: ${name}`, // a11y

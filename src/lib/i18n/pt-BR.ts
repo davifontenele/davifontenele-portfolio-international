@@ -33,6 +33,9 @@ export const ptBR: Dictionary = {
     backToTop: 'Voltar ao início',
     expertise: 'Competências',
     gallery: 'Galeria', // pendente de aprovação
+    testimonials: 'Depoimentos', // pendente de aprovação
+    references: 'Referências', // pendente de aprovação
+    translatedFrom: { en: 'Traduzido do inglês', 'pt-BR': 'Traduzido do português' }, // pendente de aprovação
     getInTouch: 'Entrar em contato',
     caseRegion: (name) => `Projeto: ${name}`, // a11y
     fullCaseRegion: (name) => `Case completo: ${name}`, // a11y

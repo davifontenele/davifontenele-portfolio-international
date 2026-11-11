@@ -3,6 +3,7 @@
   import PillButton from './PillButton.svelte';
   import CaseBlocks from './CaseBlocks.svelte';
   import RichText from './RichText.svelte';
+  import CaseEndorsements from './CaseEndorsements.svelte';
   import { nav } from '$lib/stores/nav.svelte';
   import { useI18n } from '$lib/i18n';
 
@@ -66,6 +67,9 @@
       </div>
     </section>
   {/if}
+
+  <!-- Fecho do case: depoimentos e/ou referências (só aparece se houver conteúdo). -->
+  <CaseEndorsements data={c.endorsements} />
 
   <footer class="foot">
     {#each slide.links ?? [] as link (link.href)}
