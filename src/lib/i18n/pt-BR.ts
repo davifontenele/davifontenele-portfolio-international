@@ -265,7 +265,8 @@ export const ptBR: Dictionary = {
             organization: 'AuAg',
             photo: '/images/testimonials/thomas-gardner.jpg',
             url: 'https://www.linkedin.com/in/thomas-gardner-a88a1513/',
-            translatedFrom: 'en'
+            translatedFrom: 'en',
+            highlight: 'true'
           }
         ]
       }
@@ -658,6 +659,7 @@ export const ptBR: Dictionary = {
             name: 'Sérgio Valente',
             role: 'Então presidente da DM9DDB, prestes a assumir a diretoria de comunicação da Rede Globo, compartilhou o vídeo em sua mídia social com este comentário.',
             photo: '/images/testimonials/sergio-valente.jpg',
+            highlight: 'true'
           }
         ],
         references: [

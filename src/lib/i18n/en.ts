@@ -266,7 +266,8 @@ export const en: Dictionary = {
             role: 'CEO',
             organization: 'AuAg',
             photo: '/images/testimonials/thomas-gardner.jpg',
-            url: 'https://www.linkedin.com/in/thomas-gardner-a88a1513/'
+            url: 'https://www.linkedin.com/in/thomas-gardner-a88a1513/',
+            highlight: 'true'
           }
         ]
       }
@@ -660,7 +661,8 @@ export const en: Dictionary = {
             name: 'Sérgio Valente',
             role: 'Then president of DM9DDB and about to become communications director at Rede Globo, he shared the video on social media with this comment.',
             photo: '/images/testimonials/sergio-valente.jpg',
-            translatedFrom: 'pt-BR'
+            translatedFrom: 'pt-BR',
+            highlight: 'true'
           }
         ],
         references: [
