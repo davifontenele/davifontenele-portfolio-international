@@ -34,6 +34,9 @@ export const en: Dictionary = {
     expertise: 'Expertise',
     gallery: 'Gallery', // pending approval
     testimonials: 'Testimonials', // pending approval
+    sources: 'Sources', // pending approval
+    sourceRef: (n) => `Source ${n}`, // pending approval
+    backToText: 'Back to text', // pending approval
     references: 'References', // pending approval
     translatedFrom: { en: 'Translated from English', 'pt-BR': 'Translated from Portuguese' }, // pending approval
     getInTouch: 'Get in touch',
@@ -521,7 +524,7 @@ export const en: Dictionary = {
           blocks: [
             {
               type: 'p',
-              text: 'In December 2012, Reserva, a Brazilian menswear brand, experienced a robbery at one of its stores.'
+              text: 'In December 2012, Reserva, a Brazilian menswear brand, experienced a robbery at one of its stores.[^adweek-jan28]'
             },
             {
               type: 'p',
@@ -576,11 +579,11 @@ export const en: Dictionary = {
             },
             {
               type: 'p',
-              text: 'It generated approximately 300,000 views during its first weekend and received organic coverage from national and international media outlets.'
+              text: 'It generated approximately 300,000 views during its first weekend and received organic coverage from national and international media outlets.[^adweek-jan28][^adweek-jan25]'
             },
             {
               type: 'p',
-              text: "To put that number in perspective: this was January 2013. Fewer than one in five Brazilians owned a smartphone. For most people, the internet still happened in front of a computer, often a shared one at home or at work, and Facebook did not yet autoplay videos in the feed. Every view depended on someone choosing to click and watch, at a time when video on social media was still new territory for brands."
+              text: "To put that number in perspective: this was January 2013. Fewer than one in five Brazilians owned a smartphone.[^ibope-win-2012][^ibope-nielsen-2012] For most people, the internet still happened in front of a computer, often a shared one at home or at work,[^mma-nielsen-2014] and Facebook did not yet autoplay videos in the feed.[^tubefilter-2013][^engadget-2013] Every view depended on someone choosing to click and watch, at a time when video on social media was still new territory for brands."
             },
             {
               type: 'p',
@@ -653,6 +656,59 @@ export const en: Dictionary = {
         'Business Impact'
       ],
       // pending approval
+      sources: [
+        {
+          id: 'adweek-jan25',
+          title: 'Clothing Store Uses Actual Burglary Footage in Ad, Making Fashions Look Most Wanted',
+          publisher: 'Adweek',
+          date: 'Jan 25, 2013',
+          url: 'https://www.adweek.com/?p=146786'
+        },
+        {
+          id: 'adweek-jan28',
+          title: 'Brazilian Retailer Uses Robbery Footage in Ad Campaign',
+          publisher: 'Adweek',
+          date: 'Jan 28, 2013',
+          url: 'https://www.adweek.com/?p=577118'
+        },
+        {
+          id: 'ibope-win-2012',
+          title: 'Base de smartphones duplica no Brasil',
+          publisher: 'Baguete',
+          url: 'https://www.baguete.com.br/noticias/base-de-smartphones-duplica-no-brasil',
+          note: 'Ibope Conecta/WIN survey, Nov–Dec 2012 (in Portuguese)'
+        },
+        {
+          id: 'ibope-nielsen-2012',
+          title: 'Regiões metropolitanas têm 9,5 milhões de smartphones',
+          publisher: 'Exame',
+          date: 'Aug 10, 2012',
+          url: 'https://exame.com/tecnologia/regioes-metropolitanas-tem-9-5-milhoes-de-smartphones/',
+          note: 'Ibope Nielsen data (in Portuguese)'
+        },
+        {
+          id: 'mma-nielsen-2014',
+          title: 'Smartphone já é principal acesso à internet para 33%',
+          publisher: 'Panrotas',
+          date: 'Apr 28, 2014',
+          url: 'https://www.panrotas.com.br/noticia-turismo/tecnologia/2014/04/smartphone-ja-e-principal-acesso-a-internet-para-33-_99876.html',
+          note: 'MMA/Nielsen Ibope data (in Portuguese)'
+        },
+        {
+          id: 'tubefilter-2013',
+          title: 'Facebook’s Auto Play Ads Debut On Mobile, Coming Soon To Browsers?',
+          publisher: 'Tubefilter',
+          date: 'Sep 16, 2013',
+          url: 'https://tubefilter.com/2013/09/16/facebook-auto-play-video-ads-test/'
+        },
+        {
+          id: 'engadget-2013',
+          title: 'Facebook confirms autoplay video ads are coming to your News Feed',
+          publisher: 'Engadget',
+          date: 'Dec 17, 2013',
+          url: 'https://www.engadget.com/2013/12/17/facebook-confirms-autoplay-ads/'
+        }
+      ],
       mediaAlt: [
         'Reserva campaign — video frame 1',
         'Reserva campaign — video frame 2',

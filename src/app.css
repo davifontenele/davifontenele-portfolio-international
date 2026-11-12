@@ -183,3 +183,43 @@ button {
   line-height: 0.92;
   letter-spacing: -0.05em;
 }
+
+/* ============================================================
+   Citações no texto do case — [1] sobrescrito, estilo Wikipédia
+   ============================================================ */
+.fn-ref {
+  font-size: 0.62em;
+  line-height: 0;
+  vertical-align: super;
+  margin-left: 0.08em;
+  font-variant-numeric: tabular-nums;
+}
+.fn-ref a {
+  color: rgba(255, 255, 255, 0.6);
+  border-radius: 3px;
+  padding: 0 0.08em;
+  transition: color 200ms var(--ease-cine), background 200ms var(--ease-cine);
+}
+.fn-ref a:hover,
+.fn-ref a:focus-visible {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+}
+.fn-ref a.flash {
+  animation: fn-flash 1.6s var(--ease-cine);
+}
+@keyframes fn-flash {
+  0%,
+  30% {
+    background: rgba(255, 255, 255, 0.28);
+    color: #fff;
+  }
+  100% {
+    background: transparent;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fn-ref a.flash {
+    animation: none;
+  }
+}

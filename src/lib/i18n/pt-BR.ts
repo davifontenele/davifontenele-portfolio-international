@@ -34,6 +34,9 @@ export const ptBR: Dictionary = {
     expertise: 'Competências',
     gallery: 'Galeria', // pendente de aprovação
     testimonials: 'Depoimentos', // pendente de aprovação
+    sources: 'Fontes', // pendente de aprovação
+    sourceRef: (n) => `Fonte ${n}`, // pendente de aprovação
+    backToText: 'Voltar ao texto', // pendente de aprovação
     references: 'Referências', // pendente de aprovação
     translatedFrom: { en: 'Traduzido do inglês', 'pt-BR': 'Traduzido do português' }, // pendente de aprovação
     getInTouch: 'Entrar em contato',
@@ -519,7 +522,7 @@ export const ptBR: Dictionary = {
           blocks: [
             {
               type: 'p',
-              text: 'Em dezembro de 2012, a Reserva, grife brasileira de moda masculina, sofreu um assalto em uma de suas lojas.'
+              text: 'Em dezembro de 2012, a Reserva, grife brasileira de moda masculina, sofreu um assalto em uma de suas lojas.[^adweek-jan28]'
             },
             {
               type: 'p',
@@ -574,11 +577,11 @@ export const ptBR: Dictionary = {
             },
             {
               type: 'p',
-              text: 'A peça alcançou aproximadamente 300 mil visualizações no primeiro fim de semana e conquistou repercussão espontânea em veículos de imprensa nacionais e internacionais.'
+              text: 'A peça alcançou aproximadamente 300 mil visualizações no primeiro fim de semana e conquistou repercussão espontânea em veículos de imprensa nacionais e internacionais.[^adweek-jan28][^adweek-jan25]'
             },
             {
               type: 'p',
-              text: 'Para dimensionar esse número: era janeiro de 2013. Menos de um em cada cinco brasileiros tinha um smartphone. Para a maioria, a internet ainda acontecia diante de um computador, muitas vezes compartilhado em casa ou no trabalho, e o Facebook ainda não reproduzia vídeos automaticamente no feed. Cada visualização dependia de alguém escolher clicar e assistir, numa época em que o vídeo nas redes sociais ainda era um território novo para as marcas.'
+              text: 'Para dimensionar esse número: era janeiro de 2013. Menos de um em cada cinco brasileiros tinha um smartphone.[^ibope-win-2012][^ibope-nielsen-2012] Para a maioria, a internet ainda acontecia diante de um computador, muitas vezes compartilhado em casa ou no trabalho,[^mma-nielsen-2014] e o Facebook ainda não reproduzia vídeos automaticamente no feed.[^tubefilter-2013][^engadget-2013] Cada visualização dependia de alguém escolher clicar e assistir, numa época em que o vídeo nas redes sociais ainda era um território novo para as marcas.'
             },
             {
               type: 'p',
@@ -651,6 +654,59 @@ export const ptBR: Dictionary = {
         'Impacto Comercial'
       ],
       // pendente de aprovação
+      sources: [
+        {
+          id: 'adweek-jan25',
+          title: 'Clothing Store Uses Actual Burglary Footage in Ad, Making Fashions Look Most Wanted',
+          publisher: 'Adweek',
+          date: '25 jan. 2013',
+          url: 'https://www.adweek.com/?p=146786'
+        },
+        {
+          id: 'adweek-jan28',
+          title: 'Brazilian Retailer Uses Robbery Footage in Ad Campaign',
+          publisher: 'Adweek',
+          date: '28 jan. 2013',
+          url: 'https://www.adweek.com/?p=577118'
+        },
+        {
+          id: 'ibope-win-2012',
+          title: 'Base de smartphones duplica no Brasil',
+          publisher: 'Baguete',
+          url: 'https://www.baguete.com.br/noticias/base-de-smartphones-duplica-no-brasil',
+          note: 'Pesquisa Ibope Conecta/WIN, nov.–dez. 2012'
+        },
+        {
+          id: 'ibope-nielsen-2012',
+          title: 'Regiões metropolitanas têm 9,5 milhões de smartphones',
+          publisher: 'Exame',
+          date: '10 ago. 2012',
+          url: 'https://exame.com/tecnologia/regioes-metropolitanas-tem-9-5-milhoes-de-smartphones/',
+          note: 'Dados Ibope Nielsen'
+        },
+        {
+          id: 'mma-nielsen-2014',
+          title: 'Smartphone já é principal acesso à internet para 33%',
+          publisher: 'Panrotas',
+          date: '28 abr. 2014',
+          url: 'https://www.panrotas.com.br/noticia-turismo/tecnologia/2014/04/smartphone-ja-e-principal-acesso-a-internet-para-33-_99876.html',
+          note: 'Dados MMA/Nielsen Ibope'
+        },
+        {
+          id: 'tubefilter-2013',
+          title: 'Facebook’s Auto Play Ads Debut On Mobile, Coming Soon To Browsers?',
+          publisher: 'Tubefilter',
+          date: '16 set. 2013',
+          url: 'https://tubefilter.com/2013/09/16/facebook-auto-play-video-ads-test/'
+        },
+        {
+          id: 'engadget-2013',
+          title: 'Facebook confirms autoplay video ads are coming to your News Feed',
+          publisher: 'Engadget',
+          date: '17 dez. 2013',
+          url: 'https://www.engadget.com/2013/12/17/facebook-confirms-autoplay-ads/'
+        }
+      ],
       mediaAlt: [
         'Campanha Reserva — quadro do vídeo 1',
         'Campanha Reserva — quadro do vídeo 2',

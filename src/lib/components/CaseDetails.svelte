@@ -4,8 +4,10 @@
   import CaseBlocks from './CaseBlocks.svelte';
   import RichText from './RichText.svelte';
   import CaseEndorsements from './CaseEndorsements.svelte';
+  import CaseSources from './CaseSources.svelte';
+  import { provideFootnotes, jumpTo } from './footnotes';
   import { nav } from '$lib/stores/nav.svelte';
-  import { useI18n } from '$lib/i18n';
+  import { useI18n, caseTexts, citationOrder, type Source } from '$lib/i18n';
 
   type Props = { slide: Slide };
   let { slide }: Props = $props();
@@ -17,12 +19,31 @@
   const sections = $derived(c.sections.filter((s) => s.id !== 'overview'));
   /** Contexto e desafio lado a lado (como no .xyz); o resto em largura de leitura. */
   const half = (id: string) => id === 'context' || id === 'challenge';
+  // Notas de rodapé: numeradas pela ordem da primeira citação no texto.
+  const prefix = $derived(`case-${slide.slug}`);
+  const order = $derived(citationOrder(caseTexts(c)));
+  const sources = $derived(
+    order
+      .map((id) => c.sources?.find((s) => s.id === id))
+      .filter((s): s is Source => !!s)
+  );
+  provideFootnotes({
+    number: (id) => {
+      const i = order.indexOf(id);
+      return i >= 0 && c.sources?.some((s) => s.id === id) ? i + 1 : 0;
+    },
+    get prefix() {
+      return prefix;
+    },
+    jump: (e, target) => jumpTo(e, target, nav.reducedMotion)
+  });
+
   const overviewParas = $derived(
     overview?.blocks.flatMap((b) => (b.type === 'p' ? [b.text] : [])) ?? []
   );
 </script>
 
-<article class="details" aria-label={t.ui.fullCaseRegion(c.name)}>
+<article class="details" id={prefix} aria-label={t.ui.fullCaseRegion(c.name)}>
   <!-- Depoimento marcado com `highlight`: primeira coisa do detalhamento. -->
   <CaseEndorsements data={c.endorsements} placement="opening" />
   {#if overview}
@@ -72,6 +93,9 @@
 
   <!-- Fecho do case: depoimentos e/ou referências (só aparece se houver conteúdo). -->
   <CaseEndorsements data={c.endorsements} />
+
+  <!-- Notas de rodapé: fontes citadas no texto com [n]. -->
+  <CaseSources {sources} />
 
   <footer class="foot">
     {#each slide.links ?? [] as link (link.href)}

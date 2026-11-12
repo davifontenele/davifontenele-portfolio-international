@@ -74,6 +74,25 @@ export type Reference = {
   note?: string;
 };
 
+/**
+ * Fonte citada no texto do case, estilo Wikipédia.
+ * No texto, cite com `[^id]` logo após a pontuação: "…no feed.[^engadget]".
+ * A numeração [1], [2]… é automática, pela ordem da primeira citação.
+ */
+export type Source = {
+  /** Identificador usado no texto: [^id]. Igual nos dois idiomas. */
+  id: string;
+  /** Título original da matéria/estudo — não traduzir. */
+  title: string;
+  /** Veículo ou instituição. */
+  publisher: string;
+  /** Data já formatada no idioma (ex.: '25 jan. 2013' / 'Jan 25, 2013'). */
+  date?: string;
+  url?: string;
+  /** Complemento curto (ex.: 'dados Ibope Conecta/WIN'). Localizado. */
+  note?: string;
+};
+
 export type Endorsements = {
   testimonials?: Testimonial[];
   references?: Reference[];
@@ -90,6 +109,8 @@ export type CaseCopy = {
   expertise: string[];
   /** Texto alternativo da galeria, na mesma ordem de `slides[].media`. */
   mediaAlt?: string[];
+  /** Fontes citadas no texto com [^id]; listadas como notas no fim do case. */
+  sources?: Source[];
   /** Depoimentos e referências exibidos no fim do case (ver docs/TESTIMONIALS.md). */
   endorsements?: Endorsements;
   /** Somente 3Lane: nome e descrição dos nove projetos, por id. */
@@ -125,6 +146,9 @@ export type Dictionary = {
     expertise: string;
     gallery: string;
     testimonials: string;
+    sources: string;
+    sourceRef: (n: number) => string;
+    backToText: string;
     references: string;
     translatedFrom: Record<'en' | 'pt-BR', string>;
     getInTouch: string;
