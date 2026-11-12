@@ -79,7 +79,7 @@ export const slides: Slide[] = [
   {
     slug: 'hero',
     type: 'hero',
-    video: media('hero-director'),
+    video: media('hero-director', { mobile: true }),
     accent: '#2b2f36'
   },
   {
@@ -92,7 +92,7 @@ export const slides: Slide[] = [
   {
     slug: '3lane',
     type: 'case',
-    video: media('design-direction'),
+    video: media('design-direction-720', { mobile: true }),
     accent: '#22303f'
   },
   {
@@ -154,7 +154,7 @@ export const slides: Slide[] = [
     slug: 'about',
     type: 'final',
     // Reaproveita o vídeo do antigo "Por que Davi?". Trocar por /videos/about.* quando existir.
-    video: media('why-davi', { mobile: true }),
+    video: media('why-davi-director', { mobile: true }),
     accent: '#26262b',
     links: [
       { href: 'https://linkedin.com/in/oidavi', label: 'linkedin' },
