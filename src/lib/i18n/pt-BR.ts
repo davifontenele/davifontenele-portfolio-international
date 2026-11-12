@@ -292,11 +292,11 @@ export const ptBR: Dictionary = {
           blocks: [
             {
               type: 'p',
-              text: 'Nove projetos entregues. Múltiplos setores. Equipes distribuídas em seis países.'
+              text: 'Nove projetos digitais. Múltiplos setores. Uma equipe multicultural em seis países.'
             },
             {
               type: 'p',
-              text: 'Como Design Director na 3Lane Marketing, conectei discovery, pesquisa, direção criativa, relacionamento com clientes e controle de qualidade no desenvolvimento de experiências digitais para organizações estadunidenses.'
+              text: 'Como Design Director na 3Lane Marketing, reportando à Head of Design & Development, liderei o design de nove projetos digitais para organizações estadunidenses, coordenando uma equipe multicultural em discovery, pesquisa, direção criativa, relacionamento com clientes e qualidade de design.'
             }
           ]
         },
@@ -310,11 +310,11 @@ export const ptBR: Dictionary = {
             },
             {
               type: 'p',
-              text: 'Minha atuação envolvia a direção de design em equipes multidisciplinares distribuídas internacionalmente, estabelecendo uma ponte entre clientes, gestão de projetos, pesquisa, designers, desenvolvedores e profissionais de QA.'
+              text: 'Meu papel era liderar o design em uma equipe multidisciplinar distribuída internacionalmente, fazendo a ponte entre clientes, gestão de projetos, pesquisa, designers, desenvolvedores e profissionais de QA.'
             },
             {
               type: 'p',
-              text: 'Durante essa experiência, coordenei e entreguei nove projetos digitais para organizações com públicos, requisitos e desafios operacionais distintos.'
+              text: 'Em dez meses, liderei o design de nove projetos digitais para organizações com públicos, requisitos e desafios operacionais distintos. Oito foram entregues durante minha atuação; o nono, MCLS, seguiu em desenvolvimento após o fim do meu trabalho, pela sua extensão.'
             }
           ]
         },
@@ -394,14 +394,14 @@ export const ptBR: Dictionary = {
         },
         {
           id: 'work',
-          heading: 'Projetos entregues',
-          blocks: [{ type: 'projects' }]
+          heading: 'Os projetos',
+          blocks: [{ type: 'p', text: 'Os nove projetos cujo design liderei:' }, { type: 'projects' }]
         },
         {
           id: 'role',
           heading: 'Papel desempenhado',
           blocks: [
-            { type: 'sub', text: 'Design Director' },
+            { type: 'sub', text: 'Design Director · reportando à Head of Design & Development' },
             {
               type: 'p',
               text: 'Responsável pela direção criativa, orientação dos designers, atividades de discovery, apresentações aos clientes, interpretação de pesquisas e garantia de qualidade visual durante a passagem do design para o desenvolvimento.'
@@ -419,8 +419,8 @@ export const ptBR: Dictionary = {
             {
               type: 'list',
               items: [
-                'Nove projetos digitais coordenados e entregues para organizações estadunidenses.',
-                'Colaboração em design com equipes distribuídas em seis países.',
+                'Liderança de design em nove projetos digitais para organizações estadunidenses, oito deles entregues durante minha atuação.',
+                'Coordenação de uma equipe multicultural distribuída em seis países.',
                 'Processo consistente do discovery à entrega, adaptado a diferentes setores e necessidades institucionais.',
                 'Participação direta em pesquisa, direção criativa, relacionamento com stakeholders e qualidade de implementação.'
               ]
@@ -462,7 +462,7 @@ export const ptBR: Dictionary = {
         mcls: {
           name: 'MCLS — Midwest Collaborative for Library Services',
           description:
-            'Experiência digital para uma organização de serviços colaborativos para bibliotecas.'
+            'Experiência digital para uma organização de serviços colaborativos para bibliotecas. Ainda em desenvolvimento ao fim da minha atuação, pela sua extensão; conduzi as reuniões com o cliente e o QA do Visual Page Builder usado no desenvolvimento.'
         },
         cpex: {
           name: 'CPEX — Center for Planning Excellence',
@@ -1252,12 +1252,12 @@ export const ptBR: Dictionary = {
       items: [
         { value: '25+ anos', label: 'Atuando em design, tecnologia criativa e experiências digitais.' },
         {
-          value: '5 países',
-          label: 'Equipes distribuídas internacionalmente durante minha atuação na 3Lane Marketing.'
+          value: '6 países',
+          label: 'Uma equipe multicultural, distribuída internacionalmente, durante minha atuação na 3Lane Marketing.'
         },
         {
           value: '9 projetos digitais',
-          label: 'Coordenados e entregues para organizações estadunidenses na 3Lane Marketing em 10 meses como Diretor de Design.'
+          label: 'Liderança de design para organizações estadunidenses na 3Lane Marketing, em 10 meses como Design Director.'
         },
         {
           value: 'iF Communication Design Award',

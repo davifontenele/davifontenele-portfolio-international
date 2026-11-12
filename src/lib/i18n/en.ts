@@ -293,11 +293,11 @@ export const en: Dictionary = {
           blocks: [
             {
               type: 'p',
-              text: 'Nine delivered digital projects. Multiple industries. Teams distributed across six countries.'
+              text: 'Nine digital projects. Multiple industries. A multicultural team across six countries.'
             },
             {
               type: 'p',
-              text: 'As Design Director at 3Lane Marketing, I connected discovery, research, creative direction, client relationships, and design quality throughout the delivery of digital experiences for US organizations.'
+              text: 'As Design Director at 3Lane Marketing, reporting to the Head of Design & Development, I led the design of nine digital projects for US organizations, coordinating a multicultural team through discovery, research, creative direction, client relationships, and design quality.'
             }
           ]
         },
@@ -311,11 +311,11 @@ export const en: Dictionary = {
             },
             {
               type: 'p',
-              text: 'My role involved directing design work within multidisciplinary, internationally distributed teams, while acting as a bridge between clients, project management, research, designers, developers, and quality assurance.'
+              text: 'My role was to lead design within a multidisciplinary, internationally distributed team, acting as the bridge between clients, project management, research, designers, developers, and quality assurance.'
             },
             {
               type: 'p',
-              text: 'Across this engagement, I coordinated and delivered nine digital projects for organizations with distinct audiences, requirements, and operational challenges.'
+              text: 'Over ten months, I led the design of nine digital projects for organizations with distinct audiences, requirements, and operational challenges. Eight were delivered during my time there; the ninth, MCLS, continued in development after my engagement ended, given its scope.'
             }
           ]
         },
@@ -397,7 +397,7 @@ export const en: Dictionary = {
           id: 'work',
           heading: 'The Work',
           blocks: [
-            { type: 'p', text: 'Nine coordinated and delivered digital projects:' },
+            { type: 'p', text: 'The nine projects whose design I led:' },
             { type: 'projects' }
           ]
         },
@@ -405,7 +405,7 @@ export const en: Dictionary = {
           id: 'role',
           heading: 'My Role',
           blocks: [
-            { type: 'sub', text: 'Design Director' },
+            { type: 'sub', text: 'Design Director · reporting to the Head of Design & Development' },
             {
               type: 'p',
               text: 'Responsible for creative direction, designer guidance, discovery activities, client presentations, interpretation of research findings, and visual quality assurance throughout the design-to-development process.'
@@ -423,8 +423,8 @@ export const en: Dictionary = {
             {
               type: 'list',
               items: [
-                'Nine coordinated and delivered digital projects for US organizations.',
-                'Design collaboration across teams distributed in five countries.',
+                'Design leadership on nine digital projects for US organizations, eight of them delivered during my engagement.',
+                'Coordination of a multicultural team distributed across six countries.',
                 'A consistent discovery-to-delivery approach adapted to different industries and organizational needs.',
                 'Direct involvement in research, creative guidance, stakeholder communication, and implementation quality.'
               ]
@@ -465,7 +465,8 @@ export const en: Dictionary = {
       projects: {
         mcls: {
           name: 'MCLS — Midwest Collaborative for Library Services',
-          description: 'Digital experience for a collaborative library services organization.'
+          description:
+            'Digital experience for a collaborative library services organization. Still in development when my engagement ended, given its scope; I led client meetings and the QA of the Visual Page Builder used to build it.'
         },
         cpex: {
           name: 'CPEX — Center for Planning Excellence',
@@ -1265,12 +1266,12 @@ export const en: Dictionary = {
           label: 'Working across design, creative technology, and digital experiences.'
         },
         {
-          value: '5 countries',
-          label: 'Internationally distributed teams during my work at 3Lane.'
+          value: '6 countries',
+          label: 'A multicultural, internationally distributed team during my work at 3Lane Marketing.'
         },
         {
           value: '9 digital projects',
-          label: 'Coordinated and delivered for US organizations at 3Lane Marketing in 10 months as Design Director.'
+          label: 'Design leadership for US organizations at 3Lane Marketing over 10 months as Design Director.'
         },
         {
           value: 'iF Communication Design Award',
