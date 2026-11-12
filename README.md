@@ -63,7 +63,7 @@ o `pnpm check` falha.
 
 | Ação | Desktop | Mobile |
 |---|---|---|
-| Avançar / voltar | scroll wheel, ← →, PageUp/Down, ↑ ↓, botões | swipe horizontal (case fechado) |
+| Avançar / voltar | scroll wheel, ← →, PageUp/Down, ↑ ↓, botões | swipe horizontal |
 | Abrir case | botão do case, Enter | botão ou swipe para cima |
 | Fechar case | "Back to fullscreen", Esc, scroll até o topo | swipe para baixo no topo |
 | Início / fim | Home / End | — |
@@ -74,8 +74,9 @@ a interface, com o foco de volta no botão. A interface oculta fica `inert` (tec
 de tela não a alcançam). Código: `stores/view.svelte.ts`, `components/WatchMode.svelte`,
 classe `.chrome` em `app.css`.
 
-Com o case aberto, o swipe horizontal não troca de case: a rolagem vertical e as galerias
-têm prioridade, e os botões continuam disponíveis.
+Com o case aberto, o swipe horizontal também troca de case, mas exige um gesto claramente
+horizontal (≥ 70 px, ângulo < ~27°, em menos de 600 ms), para não disputar com a rolagem
+vertical da leitura; toques que começam em áreas com rolagem horizontal são ignorados.
 
 ## Analytics
 

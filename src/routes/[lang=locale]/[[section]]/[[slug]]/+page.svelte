@@ -251,9 +251,21 @@
     // ---------- Toque (mobile): swipe horizontal como stories ----------
     let sx = 0;
     let sy = 0;
+    let st = 0;
+    /** O toque começou dentro de algo que rola na horizontal (carrossel, tabela larga)? */
+    let inHScroll = false;
+    const scrollsX = (el: Element | null): boolean => {
+      for (let n = el; n && n !== document.body; n = n.parentElement) {
+        const ox = getComputedStyle(n).overflowX;
+        if ((ox === 'auto' || ox === 'scroll') && n.scrollWidth > n.clientWidth + 1) return true;
+      }
+      return false;
+    };
     const onTouchStart = (e: TouchEvent) => {
       sx = e.touches[0].clientX;
       sy = e.touches[0].clientY;
+      st = performance.now();
+      inHScroll = scrollsX(e.target as Element);
     };
     const onTouchMove = (e: TouchEvent) => {
       const dx = e.touches[0].clientX - sx;
@@ -282,9 +294,14 @@
         if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy)) nav.go(dx < 0 ? 1 : -1);
         return;
       }
-      // Com o case aberto, o swipe horizontal NÃO troca de case: evita conflito
-      // com a rolagem vertical e com galerias. Os botões continuam disponíveis.
-      if (!nav.open && Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy)) {
+      // Swipe horizontal troca de case também com o case aberto. Para não
+      // disputar com a leitura, aberto exige um gesto claramente horizontal
+      // (≥ 70 px, ângulo < ~27°, em menos de 600 ms) e fora de áreas que rolam
+      // na horizontal. Fechado, mantém o critério original do .xyz.
+      const horizontal = nav.open
+        ? !inHScroll && Math.abs(dx) > 70 && Math.abs(dx) > 2 * Math.abs(dy) && performance.now() - st < 600
+        : Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy);
+      if (horizontal) {
         nav.go(dx < 0 ? 1 : -1);
         return;
       }
