@@ -1202,6 +1202,10 @@ export const en: Dictionary = {
   },
   about: {
     eyebrow: 'About & Leadership',
+    quote: {
+      text: 'Complexity stays in the process. What reaches people is simple.',
+      author: 'Davi Fontenele'
+    },
     titleLines: ['Creative vision.', 'Technical depth.', 'Proven execution.'],
     cta: 'Read more', // pending approval
     intro: [

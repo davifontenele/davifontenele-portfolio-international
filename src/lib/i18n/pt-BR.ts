@@ -1192,6 +1192,10 @@ export const ptBR: Dictionary = {
   },
   about: {
     eyebrow: 'Sobre & Liderança',
+    quote: {
+      text: 'A complexidade fica no processo. O que chega às pessoas é simples.',
+      author: 'Davi Fontenele'
+    },
     titleLines: ['Visão criativa.', 'Profundidade técnica.', 'Capacidade de execução.'],
     cta: 'Saiba mais', // pendente de aprovação
     intro: [
