@@ -306,7 +306,7 @@ export const ptBR: Dictionary = {
           blocks: [
             {
               type: 'p',
-              text: 'A 3Lane Marketing é uma agência estadunidense que desenvolve projetos para organizações de setores como educação, saúde, planejamento urbano, indústria, meio ambiente e comunicação pública.'
+              text: 'A 3Lane Marketing é uma agência de marketing digital estadunidense que desenvolve projetos para organizações de setores como educação, saúde, planejamento urbano, indústria, socioambiental e direitos humanos.'
             },
             {
               type: 'p',

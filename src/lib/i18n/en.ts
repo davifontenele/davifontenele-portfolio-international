@@ -307,7 +307,7 @@ export const en: Dictionary = {
           blocks: [
             {
               type: 'p',
-              text: '3Lane Marketing is a US-based agency working with organizations across sectors including education, healthcare, urban planning, manufacturing, environmental science, and public media.'
+              text: '3Lane Marketing is a US-based digital marketing agency working with organizations across sectors including education, healthcare, urban planning, manufacturing, social and environmental causes, and human rights.'
             },
             {
               type: 'p',
