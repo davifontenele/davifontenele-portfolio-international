@@ -10,8 +10,10 @@
     hrefFor: (l: Locale) => string;
     workHref: string;
     aboutHref: string;
+    /** Modo vídeo: interface fora do alcance do teclado e leitores de tela. */
+    inert?: boolean;
   };
-  let { onWork, onAbout, onLocale, hrefFor, workHref, aboutHref }: Props = $props();
+  let { onWork, onAbout, onLocale, hrefFor, workHref, aboutHref, inert = false }: Props = $props();
   const i18n = useI18n();
   const t = $derived(i18n.t);
 
@@ -23,7 +25,7 @@
   }
 </script>
 
-<nav class="menu" aria-label={t.nav.menuLabel}>
+<nav class="menu chrome" {inert} aria-label={t.nav.menuLabel}>
   <a href={workHref} onclick={(e) => intercept(e, onWork)}>{t.nav.work}</a>
   <a href={aboutHref} onclick={(e) => intercept(e, onAbout)}>{t.nav.about}</a>
   <a href={whatsappUrl(t.whatsappMessage)} target="_blank" rel="noopener noreferrer">{t.nav.contact}</a>

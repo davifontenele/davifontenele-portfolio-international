@@ -68,6 +68,12 @@ o `pnpm check` falha.
 | Fechar case | "Back to fullscreen", Esc, scroll até o topo | swipe para baixo no topo |
 | Início / fim | Home / End | — |
 
+**Modo vídeo** (botão ⛶ ao lado das setas): a interface some e fica só o vídeo de fundo.
+←/→, scroll ou swipe trocam de vídeo sem sair do modo; clique, toque, Enter ou Esc devolvem
+a interface, com o foco de volta no botão. A interface oculta fica `inert` (teclado e leitores
+de tela não a alcançam). Código: `stores/view.svelte.ts`, `components/WatchMode.svelte`,
+classe `.chrome` em `app.css`.
+
 Com o case aberto, o swipe horizontal não troca de case: a rolagem vertical e as galerias
 têm prioridade, e os botões continuam disponíveis.
 

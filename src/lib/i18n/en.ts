@@ -35,6 +35,10 @@ export const en: Dictionary = {
     gallery: 'Gallery', // pending approval
     testimonials: 'Testimonials', // pending approval
     sources: 'Sources', // pending approval
+    watchVideo: 'Watch video', // pending approval
+    showInterface: 'Show interface', // pending approval
+    watchHintPointer: 'Click or press Esc to return · ← → to change video', // pending approval
+    watchHintTouch: 'Tap to return · swipe to change video', // pending approval
     sourceRef: (n) => `Source ${n}`, // pending approval
     backToText: 'Back to text', // pending approval
     references: 'References', // pending approval

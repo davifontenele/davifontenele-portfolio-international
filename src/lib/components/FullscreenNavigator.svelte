@@ -1,13 +1,14 @@
 <script lang="ts">
   import { nav } from '$lib/stores/nav.svelte';
+  import { enterWatch } from '$lib/stores/view.svelte';
   import { useI18n } from '$lib/i18n';
 
   /**
    * Anterior/próximo. São links reais (URLs localizadas) para que crawlers e
    * "abrir em nova aba" funcionem; o clique normal mantém a transição de faixas.
    */
-  type Props = { prevHref: string | null; nextHref: string | null };
-  let { prevHref, nextHref }: Props = $props();
+  type Props = { prevHref: string | null; nextHref: string | null; inert?: boolean };
+  let { prevHref, nextHref, inert = false }: Props = $props();
   const i18n = useI18n();
 
   function go(e: MouseEvent, dir: 1 | -1) {
@@ -17,13 +18,29 @@
   }
 </script>
 
-<div class="navigator">
+<div class="navigator chrome" {inert}>
   <p class="hint" aria-hidden="true">
     <span class="desktop">{i18n.t.ui.scrollHint}</span><span class="mobile"
       >{i18n.t.ui.swipeHint}</span
     >
   </p>
   <div class="arrows">
+    <!-- Oculta a interface para ver só o vídeo de fundo. -->
+    <button
+      class="btn watch"
+      type="button"
+      aria-label={i18n.t.ui.watchVideo}
+      title={i18n.t.ui.watchVideo}
+      onclick={enterWatch}
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 8 V4 H8" />
+        <path d="M16 4 H20 V8" />
+        <path d="M20 16 V20 H16" />
+        <path d="M8 20 H4 V16" />
+        <path d="M10 9.2 L15 12 L10 14.8 Z" class="fill" />
+      </svg>
+    </button>
     {#if prevHref}
       <a class="btn" href={prevHref} aria-label={i18n.t.ui.previous} onclick={(e) => go(e, -1)}>
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4 L7 12 L15 20" /></svg>
@@ -89,6 +106,25 @@
     border-color: #fff;
   }
   a.btn:hover svg {
+    stroke: #060606;
+  }
+  /* Separa o "assistir" das setas, sem competir com elas. */
+  .watch {
+    margin-right: 6px;
+  }
+  svg .fill {
+    fill: #fff;
+    stroke: none;
+    transition: fill 220ms var(--ease-cine);
+  }
+  .btn:hover svg .fill {
+    fill: #060606;
+  }
+  button.btn:not(:disabled):hover {
+    background: #fff;
+    border-color: #fff;
+  }
+  button.btn:not(:disabled):hover svg {
     stroke: #060606;
   }
   .btn:disabled {

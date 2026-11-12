@@ -147,6 +147,10 @@ export type Dictionary = {
     gallery: string;
     testimonials: string;
     sources: string;
+    watchVideo: string;
+    showInterface: string;
+    watchHintPointer: string;
+    watchHintTouch: string;
     sourceRef: (n: number) => string;
     backToText: string;
     references: string;
@@ -177,6 +181,8 @@ export type Dictionary = {
   cases: Record<CaseSlug, CaseCopy>;
   about: {
     eyebrow: string;
+    /** Frase autoral em destaque (opcional), exibida após a apresentação. */
+    quote?: { text: string; author: string };
     titleLines: string[];
     cta: string;
     intro: string[];

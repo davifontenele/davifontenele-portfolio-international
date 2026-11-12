@@ -35,6 +35,10 @@ export const ptBR: Dictionary = {
     gallery: 'Galeria', // pendente de aprovação
     testimonials: 'Depoimentos', // pendente de aprovação
     sources: 'Fontes', // pendente de aprovação
+    watchVideo: 'Assistir ao vídeo', // pendente de aprovação
+    showInterface: 'Mostrar interface', // pendente de aprovação
+    watchHintPointer: 'Clique ou pressione Esc para voltar · ← → para trocar de vídeo', // pendente de aprovação
+    watchHintTouch: 'Toque para voltar · deslize para trocar de vídeo', // pendente de aprovação
     sourceRef: (n) => `Fonte ${n}`, // pendente de aprovação
     backToText: 'Voltar ao texto', // pendente de aprovação
     references: 'Referências', // pendente de aprovação

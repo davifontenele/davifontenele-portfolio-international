@@ -4,12 +4,13 @@
     number: number;
     total: number;
     name: string;
+    inert?: boolean;
   };
-  let { number, total, name }: Props = $props();
+  let { number, total, name, inert = false }: Props = $props();
   const pad = (n: number) => String(n).padStart(2, '0');
 </script>
 
-<div class="progress" aria-live="polite">
+<div class="progress chrome" {inert} aria-live="polite">
   <p class="label">
     {#if number > 0}
       <span class="num">{pad(number)}</span>

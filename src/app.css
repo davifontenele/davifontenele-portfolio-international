@@ -223,3 +223,27 @@ button {
     animation: none;
   }
 }
+
+/* ============================================================
+   Modo "assistir ao vídeo": toda a interface (.chrome) some e
+   o vídeo de fundo fica sozinho. O vídeo e o shader não mudam.
+   ============================================================ */
+.chrome {
+  transition:
+    opacity 450ms var(--ease-cine),
+    visibility 0s linear 0s;
+}
+html.watching .chrome {
+  opacity: 0 !important;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 450ms var(--ease-cine),
+    visibility 0s linear 450ms !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .chrome,
+  html.watching .chrome {
+    transition: none;
+  }
+}

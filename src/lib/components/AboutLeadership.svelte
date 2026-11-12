@@ -20,6 +20,14 @@
     {/each}
   </header>
 
+  <!-- Frase autoral (opcional) -->
+  {#if a.quote}
+    <figure class="motto">
+      <blockquote><p>{a.quote.text}</p></blockquote>
+      <figcaption><span class="dash" aria-hidden="true"></span>{a.quote.author}</figcaption>
+    </figure>
+  {/if}
+
   <!-- 2. Filosofia de liderança -->
   <section class="block">
     <h2 class="block-title">{a.philosophy.heading}</h2>
@@ -127,6 +135,41 @@
   .lead .body-text {
     margin: 0 0 1.1rem;
     max-width: 64ch;
+  }
+  /* Frase autoral: tipografia de título (Roboto 900), como uma assinatura. */
+  .motto {
+    margin: 0;
+    padding: clamp(3rem, 7vw, 5.5rem) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .motto blockquote {
+    margin: 0;
+  }
+  .motto p {
+    margin: 0;
+    font-family: var(--font-title);
+    font-weight: 900;
+    font-size: clamp(2.2rem, 5.6vw, 5.25rem);
+    line-height: 0.95;
+    letter-spacing: -0.05em;
+    color: #fff;
+    max-width: 16ch;
+    text-wrap: balance;
+  }
+  .motto figcaption {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    margin-top: 1.75rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  .motto .dash {
+    width: 2.5rem;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.5);
   }
   .block {
     display: grid;

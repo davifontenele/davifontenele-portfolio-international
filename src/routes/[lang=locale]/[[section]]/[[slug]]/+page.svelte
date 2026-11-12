@@ -16,7 +16,7 @@
     type Route
   } from '$lib/i18n';
   import { nav } from '$lib/stores/nav.svelte';
-  import { view } from '$lib/stores/view.svelte';
+  import { view, exitWatch } from '$lib/stores/view.svelte';
   import { watchReducedMotion } from '$lib/utils/motion';
 
   import VideoBackground from '$lib/components/VideoBackground.svelte';
@@ -28,6 +28,7 @@
   import TopMenu from '$lib/components/TopMenu.svelte';
   import ProgressIndicator from '$lib/components/ProgressIndicator.svelte';
   import FullscreenNavigator from '$lib/components/FullscreenNavigator.svelte';
+  import WatchMode from '$lib/components/WatchMode.svelte';
 
   let { data } = $props();
 
@@ -109,6 +110,11 @@
     if (untrack(() => page.url.pathname) !== path) replaceState(path, {});
   });
 
+  // ---------- Modo vídeo: classe no <html> esconde a interface via CSS ----------
+  $effect(() => {
+    document.documentElement.classList.toggle('watching', view.watching);
+  });
+
   // ---------- <html lang> ----------
   $effect(() => {
     document.documentElement.lang = hreflang[data.locale];
@@ -158,7 +164,8 @@
     const THRESHOLD = 70;
 
     const onWheel = (e: WheelEvent) => {
-      if (nav.open) {
+      // No modo vídeo, o scroll troca de vídeo mesmo com o case aberto.
+      if (nav.open && !view.watching) {
         // No modo aberto o scroll é vertical de verdade.
         // Rolar para cima já no topo recolhe o case.
         if (scroller && scroller.scrollTop <= 0 && e.deltaY < -12) nav.closeCase();
@@ -180,6 +187,21 @@
     const onKey = (e: KeyboardEvent) => {
       const tag = (e.target as HTMLElement)?.tagName;
       if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+      // Modo vídeo: setas trocam de vídeo; Esc devolve a interface.
+      // (Enter/Espaço acionam o botão de saída, que está com o foco.)
+      if (view.watching) {
+        if (['ArrowRight', 'ArrowDown', 'PageDown'].includes(e.key)) {
+          e.preventDefault();
+          nav.go(1);
+        } else if (['ArrowLeft', 'ArrowUp', 'PageUp'].includes(e.key)) {
+          e.preventDefault();
+          nav.go(-1);
+        } else if (e.key === 'Escape') {
+          e.preventDefault();
+          exitWatch();
+        }
+        return;
+      }
       switch (e.key) {
         case 'ArrowRight':
         case 'PageDown':
@@ -236,6 +258,10 @@
     const onTouchMove = (e: TouchEvent) => {
       const dx = e.touches[0].clientX - sx;
       const dy = e.touches[0].clientY - sy;
+      if (view.watching) {
+        e.preventDefault();
+        return;
+      }
       // No hero, bloqueia também o gesto vertical (não há painel para abrir/rolar).
       const onHero = slides[nav.index]?.type === 'hero';
       if (!nav.open && onHero && Math.abs(dy) > 8) {
@@ -250,6 +276,12 @@
       const p = e.changedTouches[0];
       const dx = p.clientX - sx;
       const dy = p.clientY - sy;
+      // Modo vídeo: swipe horizontal troca de vídeo; o toque simples (sem
+      // arrastar) vira clique na camada de saída e devolve a interface.
+      if (view.watching) {
+        if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy)) nav.go(dx < 0 ? 1 : -1);
+        return;
+      }
       // Com o case aberto, o swipe horizontal NÃO troca de case: evita conflito
       // com a rolagem vertical e com galerias. Os botões continuam disponíveis.
       if (!nav.open && Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy)) {
@@ -336,9 +368,10 @@
 <ShaderTransition items={slides} {videoEls} strips={18} stagger={0.42} />
 
 <!-- Overlay de legibilidade: discreto no fullscreen, mais forte no case aberto -->
-<div class="scrim" class:strong={nav.open} aria-hidden="true"></div>
+<div class="scrim chrome" class:strong={nav.open} aria-hidden="true"></div>
 
 <TopMenu
+  inert={view.watching}
   onWork={() => nav.goTo(1)}
   onAbout={goToAbout}
   onLocale={switchLocale}
@@ -348,7 +381,8 @@
 />
 
 <main
-  class="stage"
+  inert={view.watching}
+  class="stage chrome"
   class:open={nav.open && item.type !== 'hero'}
   class:transitioning={nav.transitioning}
   aria-labelledby="slide-title"
@@ -393,6 +427,7 @@
 
 {#if item.type !== 'hero'}
   <ProgressIndicator
+    inert={view.watching}
     number={item.type === 'case' ? caseNumber : 0}
     total={caseTotal}
     name={itemName}
@@ -400,12 +435,16 @@
 {/if}
 
 <FullscreenNavigator
+  inert={view.watching}
   prevHref={nav.index > 0 ? pathFor(data.locale, routeFor(nav.index - 1)) : null}
   nextHref={nav.index < nav.total - 1 ? pathFor(data.locale, routeFor(nav.index + 1)) : null}
 />
 
+<!-- Modo vídeo: camada que devolve a interface + dica -->
+<WatchMode />
+
 <!-- Atalho sempre disponível para contato, sem depender de gestos -->
-<a class="skip" href={whatsappUrl(t.whatsappMessage)} target="_blank" rel="noopener noreferrer">
+<a class="skip chrome" inert={view.watching} href={whatsappUrl(t.whatsappMessage)} target="_blank" rel="noopener noreferrer">
   {t.ui.getInTouch}
 </a>
 
