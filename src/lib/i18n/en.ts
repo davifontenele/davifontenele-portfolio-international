@@ -521,7 +521,7 @@ export const en: Dictionary = {
           blocks: [
             {
               type: 'p',
-              text: 'Reserva, a Brazilian menswear brand, experienced a robbery at one of its stores.'
+              text: 'In December 2012, Reserva, a Brazilian menswear brand, experienced a robbery at one of its stores.'
             },
             {
               type: 'p',
@@ -577,6 +577,10 @@ export const en: Dictionary = {
             {
               type: 'p',
               text: 'It generated approximately 300,000 views during its first weekend and received organic coverage from national and international media outlets.'
+            },
+            {
+              type: 'p',
+              text: "To put that number in perspective: this was January 2013. Fewer than one in five Brazilians owned a smartphone. For most people, the internet still happened in front of a computer, often a shared one at home or at work, and Facebook did not yet autoplay videos in the feed. Every view depended on someone choosing to click and watch, at a time when video on social media was still new territory for brands."
             },
             {
               type: 'p',

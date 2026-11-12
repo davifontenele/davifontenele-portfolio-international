@@ -519,7 +519,7 @@ export const ptBR: Dictionary = {
           blocks: [
             {
               type: 'p',
-              text: 'A Reserva, grife brasileira de moda masculina, sofreu um assalto em uma de suas lojas.'
+              text: 'Em dezembro de 2012, a Reserva, grife brasileira de moda masculina, sofreu um assalto em uma de suas lojas.'
             },
             {
               type: 'p',
@@ -575,6 +575,10 @@ export const ptBR: Dictionary = {
             {
               type: 'p',
               text: 'A peça alcançou aproximadamente 300 mil visualizações no primeiro fim de semana e conquistou repercussão espontânea em veículos de imprensa nacionais e internacionais.'
+            },
+            {
+              type: 'p',
+              text: 'Para dimensionar esse número: era janeiro de 2013. Menos de um em cada cinco brasileiros tinha um smartphone. Para a maioria, a internet ainda acontecia diante de um computador, muitas vezes compartilhado em casa ou no trabalho, e o Facebook ainda não reproduzia vídeos automaticamente no feed. Cada visualização dependia de alguém escolher clicar e assistir, numa época em que o vídeo nas redes sociais ainda era um território novo para as marcas.'
             },
             {
               type: 'p',
