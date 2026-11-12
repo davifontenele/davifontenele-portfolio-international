@@ -41,7 +41,8 @@ salinas: {
 
 ## Destaque (`highlight: true`)
 
-Para um depoimento de extrema importância, acrescente `highlight: true`. Ele passa a ser a
+Para um depoimento de extrema importância, acrescente `highlight: true` — **sem aspas**
+(`'true'` entre aspas é texto, e o `pnpm check` acusa erro). Ele passa a ser a
 **primeira coisa do detalhamento do case**, antes da visão geral, e sai do bloco final
 (não aparece duplicado). Marque o mesmo depoimento nos dois idiomas.
 
@@ -54,6 +55,19 @@ Para um depoimento de extrema importância, acrescente `highlight: true`. Ele pa
 
 Até ~220 caracteres, o depoimento principal usa a escala grande. Acima disso, usa uma
 escala intermediária, para não ocupar mais de uma tela.
+
+## EN e PT precisam bater
+
+Cada depoimento e cada referência precisam existir nos **dois** arquivos. Se faltar em um
+idioma, ele simplesmente não aparece naquela versão do site. Para não passar despercebido,
+o `pnpm dev` e o `pnpm build` (inclusive o log do Vercel) avisam no terminal:
+
+```
+⚠  Depoimentos/referências diferentes entre EN e PT:
+   • salinas: depoimento só em PT — Tola Faria
+```
+
+A comparação é pelo `name`; escreva o nome igual nos dois idiomas.
 
 ## Regras de conteúdo
 

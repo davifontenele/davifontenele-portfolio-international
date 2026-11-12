@@ -267,7 +267,7 @@ export const en: Dictionary = {
             organization: 'AuAg',
             photo: '/images/testimonials/thomas-gardner.jpg',
             url: 'https://www.linkedin.com/in/thomas-gardner-a88a1513/',
-            highlight: 'true'
+            highlight: true
           }
         ]
       }
@@ -662,7 +662,7 @@ export const en: Dictionary = {
             role: 'Then president of DM9DDB and about to become communications director at Rede Globo, he shared the video on social media with this comment.',
             photo: '/images/testimonials/sergio-valente.jpg',
             translatedFrom: 'pt-BR',
-            highlight: 'true'
+            highlight: true
           }
         ],
         references: [
@@ -948,6 +948,15 @@ export const en: Dictionary = {
             organization: '6D',
             photo: '/images/testimonials/emilio-rangel.jpg',
             translatedFrom: 'pt-BR'
+          },
+          {
+            quote:
+              'Davi Fontenele is an amazing guy. Super talented and creative. He goes from design to development. He spent years at 6D and is still much loved by everyone there. Highly recommended.',
+            name: 'Tola Faria',
+            role: 'Client Services Director',
+            organization: '6D',
+            photo: '/images/testimonials/tola-faria.jpg',
+            translatedFrom: 'pt-BR'
           }
         ],
         references: [
@@ -1111,7 +1120,20 @@ export const en: Dictionary = {
         'Social Impact',
         'Iconography',
         'Brand Guidelines'
-      ]
+      ],
+      endorsements: {
+        testimonials: [
+          {
+            quote: "My businesses don't move without him! Thank you, Davi!",
+            name: 'Paula Maia',
+            role: 'Founder and CEO',
+            organization: 'Faz Girar Market',
+            photo: '/images/testimonials/paula-maia.jpg',
+            url: 'https://www.linkedin.com/in/paula-machado-maia-0a8ab425/',
+            translatedFrom: 'pt-BR'
+          }
+        ]
+      }
     }
   },
   about: {

@@ -266,7 +266,7 @@ export const ptBR: Dictionary = {
             photo: '/images/testimonials/thomas-gardner.jpg',
             url: 'https://www.linkedin.com/in/thomas-gardner-a88a1513/',
             translatedFrom: 'en',
-            highlight: 'true'
+            highlight: true
           }
         ]
       }
@@ -659,7 +659,7 @@ export const ptBR: Dictionary = {
             name: 'Sérgio Valente',
             role: 'Então presidente da DM9DDB, prestes a assumir a diretoria de comunicação da Rede Globo, compartilhou o vídeo em sua mídia social com este comentário.',
             photo: '/images/testimonials/sergio-valente.jpg',
-            highlight: 'true'
+            highlight: true
           }
         ],
         references: [
@@ -1118,9 +1118,9 @@ export const ptBR: Dictionary = {
             quote: 'Sem ele meus negócios não andam! Obrigada Davi!',
             name: 'Paula Maia',
             role: 'Fundadora e CEO',
-            organization: 'Faz Girar Market',                       // opcional
-            photo: '/images/testimonials/paula-maia.jpg',        // opcional, quadrada, ≥ 160 px
-            url: 'https://www.linkedin.com/in/paula-machado-maia-0a8ab425/'          // opcional
+            organization: 'Faz Girar Market',
+            photo: '/images/testimonials/paula-maia.jpg',
+            url: 'https://www.linkedin.com/in/paula-machado-maia-0a8ab425/'
           }
         ]
       }
