@@ -721,7 +721,7 @@ export const ptBR: Dictionary = {
           {
             quote: 'Genial! Genial! Genial! Genial! Genial!',
             name: 'Sérgio Valente',
-            role: 'Publicitário. Presidente da DM9DDB (2005–2013), depois diretor de comunicação da TV Globo e CMO global da JBS. Comentou assim o vídeo nas redes sociais.',
+            role: 'Publicitário. Quando deixava a presidência da DM9DDB para assumir a direção de comunicação da TV Globo, comentou assim o vídeo nas redes sociais.',
             photo: '/images/testimonials/sergio-valente.jpg',
             highlight: true
           }
