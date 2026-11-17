@@ -724,7 +724,7 @@ export const en: Dictionary = {
           {
             quote: 'Brilliant! Brilliant! Brilliant! Brilliant! Brilliant!',
             name: 'Sérgio Valente',
-            role: 'Then president of DM9DDB and about to become communications director at Rede Globo, he shared the video on social media with this comment.',
+            role: 'Advertising executive. As he was stepping down as President of DM9DDB to become Communications Director at TV Globo, he shared the video on social media with this comment.',
             photo: '/images/testimonials/sergio-valente.jpg',
             translatedFrom: 'pt-BR',
             highlight: true
