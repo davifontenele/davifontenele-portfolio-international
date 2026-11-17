@@ -92,7 +92,7 @@ export const slides: Slide[] = [
   {
     slug: '3lane',
     type: 'case',
-    video: media('design-direction-720', { mobile: true }),
+    video: media('3lane_new', { mobile: true }),
     accent: '#22303f'
   },
   {
